@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 import 'core/constants/strings.dart';
 import 'core/themes/app_theme.dart';
 import 'logic/debug/app_bloc_observer.dart';
 import 'presentation/router/app_router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final keyApplicationId = 'GNmVLEiNja76eh7zLt9vFS8RWb4XrhdQAgv2gU4X';
+  final keyClientKey = 'wLLf92oYhnQFpupvaOEPiPlYW4p3RjfgD387v8Qd';
+  final keyParseServerUrl = 'https://parseapi.back4app.com';
+
+  await Parse().initialize(keyApplicationId, keyParseServerUrl,
+      clientKey: keyClientKey,
+      debug: true,
+      appName: 'MyApp', //add
+      appPackageName: 'com.mypackagename.myapp', //add
+      appVersion: '1.0.0' //add
+      );
+
   Bloc.observer = AppBlocObserver();
   runApp(App());
 }
