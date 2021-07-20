@@ -1,9 +1,9 @@
-import 'package:bloc_architecture_app/presentation/screens/user_page/user_page.dart';
+import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/constants/strings.dart';
 import '../../core/exceptions/route_exception.dart';
-import '../screens/home_screen/home_screen.dart';
+import '../screens/home_screen.dart';
 
 class AppRouter {
   static const String home = '/';

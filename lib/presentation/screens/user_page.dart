@@ -1,8 +1,9 @@
-import 'package:bloc_architecture_app/presentation/screens/home_screen/home_screen.dart';
+import 'package:bloc_architecture_app/presentation/screens/home_screen.dart';
+import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import '../../../core/constants/strings.dart';
+import '../../core/constants/strings.dart';
 
 class UserPage extends StatefulWidget {
   @override
