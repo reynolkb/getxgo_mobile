@@ -1,6 +1,7 @@
-import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
+import 'package:bloc_architecture_app/data/repositories/repository.dart';
+import 'package:bloc_architecture_app/logic/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class _LoginPageState extends State<LoginPage> {
   final controllerUsername = TextEditingController();
   final controllerPassword = TextEditingController();
   bool isLoggedIn = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,14 +101,9 @@ class _LoginPageState extends State<LoginPage> {
     final username = controllerUsername.text.trim();
     final password = controllerPassword.text.trim();
 
-    final user = ParseUser(username, password, null);
+    var route = await BlocProvider.of<LoginCubit>(context)
+        .loginUser(username, password);
 
-    var response = await user.login();
-
-    if (response.success) {
-      Navigator.of(context).pushNamed('user_page');
-    } else {
-      Message.showError(context: context, message: response.error!.message);
-    }
+    Navigator.of(context).pushNamed(route);
   }
 }
