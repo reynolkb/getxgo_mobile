@@ -1,9 +1,8 @@
-import 'package:bloc_architecture_app/presentation/screens/home_screen.dart';
-import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
+import 'home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import '../../core/constants/strings.dart';
+import 'login_page.dart';
 
 class UserPage extends StatefulWidget {
   @override
@@ -39,44 +38,45 @@ class _UserPageState extends State<UserPage> {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text('User logged in - Current User'),
-        ),
-        body: FutureBuilder<ParseUser?>(
-            future: getUser(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                case ConnectionState.waiting:
-                  return Center(
-                    child: Container(
-                        width: 100,
-                        height: 100,
-                        child: CircularProgressIndicator()),
-                  );
-                default:
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Center(
-                            child: Text('Hello, ${snapshot.data!.username}')),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        Container(
-                          height: 50,
-                          child: ElevatedButton(
-                            child: const Text('Logout'),
-                            onPressed: () => doUserLogout(),
-                          ),
-                        ),
-                      ],
+      appBar: AppBar(
+        title: Text('User logged in - Current User'),
+      ),
+      body: FutureBuilder<ParseUser?>(
+        future: getUser(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(
+                child: Container(
+                    width: 100,
+                    height: 100,
+                    child: CircularProgressIndicator()),
+              );
+            default:
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(child: Text('Hello, ${snapshot.data!.username}')),
+                    SizedBox(
+                      height: 16,
                     ),
-                  );
-              }
-            }));
+                    Container(
+                      height: 50,
+                      child: ElevatedButton(
+                        child: const Text('Logout'),
+                        onPressed: () => doUserLogout(),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+          }
+        },
+      ),
+    );
   }
 }

@@ -3,8 +3,6 @@ import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import '../../core/constants/strings.dart';
-
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key, required this.title}) : super(key: key);
 

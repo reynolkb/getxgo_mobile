@@ -1,10 +1,7 @@
-import 'package:bloc_architecture_app/presentation/screens/home_screen.dart';
-import 'package:bloc_architecture_app/presentation/screens/reset_password_page.dart';
-import 'package:bloc_architecture_app/presentation/screens/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import '../../core/constants/strings.dart';
+import 'home_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,9 +15,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('Flutter - Parse Server'),
-        // ),
         body: Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(8),
@@ -82,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
               child: ElevatedButton(
                 child: const Text('Sign Up'),
-                onPressed: () => navigateToSignUp(),
+                onPressed: () => Navigator.of(context).pushNamed('sign_up'),
               ),
             ),
             SizedBox(
@@ -92,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
               child: ElevatedButton(
                 child: const Text('Reset Password'),
-                onPressed: () => navigateToResetPassword(),
+                onPressed: () =>
+                    Navigator.of(context).pushNamed('reset_password'),
               ),
             )
           ],
@@ -114,19 +109,5 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       Message.showError(context: context, message: response.error!.message);
     }
-  }
-
-  void navigateToSignUp() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SignUpPage()),
-    );
-  }
-
-  void navigateToResetPassword() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ResetPasswordPage()),
-    );
   }
 }
