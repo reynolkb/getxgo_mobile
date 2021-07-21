@@ -1,7 +1,6 @@
+import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-
-import 'home_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override
