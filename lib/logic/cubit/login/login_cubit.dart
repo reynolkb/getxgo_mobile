@@ -1,18 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_architecture_app/data/repositories/repository.dart';
-import 'package:flutter/material.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this.repo) : super(LoginSuccess());
+  LoginCubit(this.repo) : super(LoginState());
 
   final LoginRepository repo;
 
   Future<String> loginUser(String username, String password) async {
     try {
-      final successRoute = await repo.loginAttempt(username, password);
-      return successRoute;
+      final response = await repo.loginAttempt(username, password);
+      return response;
     } catch (e) {
       throw e;
     }

@@ -1,5 +1,5 @@
-import 'package:bloc_architecture_app/data/repositories/repository.dart';
 import 'package:bloc_architecture_app/logic/cubit/login/login_cubit.dart';
+import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -101,9 +101,12 @@ class _LoginPageState extends State<LoginPage> {
     final username = controllerUsername.text.trim();
     final password = controllerPassword.text.trim();
 
-    var route = await BlocProvider.of<LoginCubit>(context)
+    var response = await BlocProvider.of<LoginCubit>(context)
         .loginUser(username, password);
-
-    Navigator.of(context).pushNamed(route);
+    if (response == 'user_page') {
+      Navigator.of(context).pushNamed(response);
+    } else {
+      Message.showError(context: context, message: response);
+    }
   }
 }
