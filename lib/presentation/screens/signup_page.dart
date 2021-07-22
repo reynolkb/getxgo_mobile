@@ -1,6 +1,7 @@
+import 'package:bloc_architecture_app/logic/cubit/signup/signup_cubit.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -12,9 +13,12 @@ class _SignUpPageState extends State<SignUpPage> {
   final controllerPassword = TextEditingController();
   final controllerEmail = TextEditingController();
 
+  // GlobalKey<ScaffoldState> signupScreenKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // key: signupScreenKey,
         appBar: AppBar(
           title: const Text('Flutter Sign Up'),
         ),
@@ -102,20 +106,19 @@ class _SignUpPageState extends State<SignUpPage> {
     final email = controllerEmail.text.trim();
     final password = controllerPassword.text.trim();
 
-    final user = ParseUser.createUser(username, password, email);
+    var response = await BlocProvider.of<SignupCubit>(context)
+        .signupUser(username, password, email);
 
-    var response = await user.signUp();
-
-    if (response.success) {
+    if (response ==
+        'User was successfully created! Please verify your email before Login') {
       Message.showSuccess(
           context: context,
-          message:
-              'User was successfully created! Please verify your email before Login',
+          message: response,
           onPressed: () async {
             Navigator.pop(context);
           });
     } else {
-      Message.showError(context: context, message: response.error!.message);
+      Message.showError(context: context, message: response);
     }
   }
 }

@@ -4,6 +4,9 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 import 'core/constants/strings.dart';
 import 'core/themes/app_theme.dart';
+import 'data/repositories/repository.dart';
+import 'logic/cubit/login/login_cubit.dart';
+import 'logic/cubit/signup/signup_cubit.dart';
 import 'logic/debug/app_bloc_observer.dart';
 import 'presentation/router/app_router.dart';
 
@@ -23,19 +26,37 @@ void main() async {
       );
 
   Bloc.observer = AppBlocObserver();
-  runApp(App());
+  runApp(App(
+    appRouter: AppRouter(),
+  ));
 }
 
 class App extends StatelessWidget {
+  final AppRouter appRouter;
+
+  const App({
+    required this.appRouter,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: Strings.appTitle,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppRouter.home,
-      onGenerateRoute: AppRouter.onGenerateRoute,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LoginCubit>(
+          create: (context) => LoginCubit(LoginRepository()),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (context) => SignupCubit(SignupRepository()),
+        ),
+      ],
+      child: MaterialApp(
+        title: Strings.appTitle,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        onGenerateRoute: appRouter.onGenerateRoute,
+      ),
     );
   }
 }

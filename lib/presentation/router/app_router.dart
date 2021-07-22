@@ -4,23 +4,13 @@ import 'package:bloc_architecture_app/presentation/screens/signup_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/constants/strings.dart';
-import '../../core/exceptions/route_exception.dart';
 import '../screens/home_screen.dart';
 
 class AppRouter {
-  static const String home = '/';
-
-  const AppRouter._();
-
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+  Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case home:
-        return MaterialPageRoute(
-          builder: (_) => HomeScreen(
-            title: Strings.homeScreenTitle,
-          ),
-        );
+      case '/':
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       case 'sign_up':
         return MaterialPageRoute(builder: (_) => SignUpPage());
       case 'login':
@@ -30,7 +20,7 @@ class AppRouter {
       case 'reset_password':
         return MaterialPageRoute(builder: (_) => ResetPasswordPage());
       default:
-        throw const RouteException('Route not found!');
+        return null;
     }
   }
 }
