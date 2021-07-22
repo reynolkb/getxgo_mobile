@@ -26,3 +26,15 @@ class SignupRepository {
     return response;
   }
 }
+
+class ResetPasswordRepository {
+  ResetPasswordAPI api = ResetPasswordAPI();
+
+  Future<String> resetPasswordAttempt(
+    String email,
+  ) async {
+    var response = await api.getResetPasswordAttempt(email);
+
+    return response;
+  }
+}

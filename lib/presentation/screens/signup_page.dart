@@ -13,12 +13,9 @@ class _SignUpPageState extends State<SignUpPage> {
   final controllerPassword = TextEditingController();
   final controllerEmail = TextEditingController();
 
-  // GlobalKey<ScaffoldState> signupScreenKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // key: signupScreenKey,
         appBar: AppBar(
           title: const Text('Flutter Sign Up'),
         ),

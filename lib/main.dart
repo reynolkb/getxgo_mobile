@@ -6,6 +6,7 @@ import 'core/constants/strings.dart';
 import 'core/themes/app_theme.dart';
 import 'data/repositories/repository.dart';
 import 'logic/cubit/login/login_cubit.dart';
+import 'logic/cubit/reset_password/reset_password_cubit.dart';
 import 'logic/cubit/signup/signup_cubit.dart';
 import 'logic/debug/app_bloc_observer.dart';
 import 'presentation/router/app_router.dart';
@@ -47,6 +48,9 @@ class App extends StatelessWidget {
         ),
         BlocProvider<SignupCubit>(
           create: (context) => SignupCubit(SignupRepository()),
+        ),
+        BlocProvider<ResetPasswordCubit>(
+          create: (context) => ResetPasswordCubit(ResetPasswordRepository()),
         ),
       ],
       child: MaterialApp(

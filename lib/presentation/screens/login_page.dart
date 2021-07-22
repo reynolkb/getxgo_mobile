@@ -9,8 +9,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // GlobalKey<ScaffoldState> loginPageKey = GlobalKey<ScaffoldState>();
-
   final controllerUsername = TextEditingController();
   final controllerPassword = TextEditingController();
   bool isLoggedIn = false;
@@ -18,7 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // key: loginPageKey,
         body: Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(8),

@@ -31,3 +31,18 @@ class SignupAPI {
     }
   }
 }
+
+class ResetPasswordAPI {
+  Future<String> getResetPasswordAttempt(
+    String email,
+  ) async {
+    final ParseUser user = ParseUser(null, null, email);
+    final ParseResponse parseResponse = await user.requestPasswordReset();
+
+    if (parseResponse.success) {
+      return 'Password reset instructions have been sent to email!';
+    } else {
+      return parseResponse.error!.message;
+    }
+  }
+}
