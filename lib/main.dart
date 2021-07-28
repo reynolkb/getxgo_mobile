@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import 'core/constants/strings.dart';
+import 'core/constants/constants.dart';
 import 'core/themes/app_theme.dart';
 import 'data/repositories/repository.dart';
 import 'logic/cubit/login/login_cubit.dart';

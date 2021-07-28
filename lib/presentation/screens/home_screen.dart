@@ -1,3 +1,4 @@
+import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
 import 'package:flutter/material.dart';
@@ -25,9 +26,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Screen'),
-      ),
       body: FutureBuilder<bool>(
         future: hasUserLogged(),
         builder: (context, snapshot) {

@@ -1,3 +1,4 @@
+import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/logic/cubit/signup/signup_cubit.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Flutter Sign Up'),
+          backgroundColor: ColorConstants.primaryColor,
+          brightness: Brightness.dark,
         ),
         body: Center(
           child: SingleChildScrollView(
@@ -27,11 +30,10 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 Container(
                   height: 200,
-                  child: Image.network(
-                      'https://blog.back4app.com/wp-content/uploads/2017/11/logo-b4a-1-768x175-1.png'),
+                  child: Image.asset('assets/images/getxgo_logo.png'),
                 ),
                 Center(
-                  child: const Text('Flutter on Back4App',
+                  child: const Text('GetxGo',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
@@ -90,6 +92,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
                     onPressed: () => doUserRegistration(),
+                    style: ElevatedButton.styleFrom(
+                      primary: ColorConstants.primaryColor,
+                    ),
                   ),
                 )
               ],
