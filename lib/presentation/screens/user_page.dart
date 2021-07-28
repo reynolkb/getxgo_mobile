@@ -4,6 +4,7 @@ import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart'
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
+import 'checklist_page.dart';
 import 'login_page.dart';
 
 class UserPage extends StatefulWidget {
@@ -13,8 +14,6 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   ParseUser? currentUser;
-  bool _isCheckedPassport = false;
-  bool _isCheckedAutoInsurance = false;
 
   Future<ParseUser?> getUser() async {
     currentUser = await ParseUser.currentUser() as ParseUser;
@@ -63,39 +62,12 @@ class _UserPageState extends State<UserPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  children: [
                     Center(child: Text('Hello, ${snapshot.data!.username}')),
                     SizedBox(
                       height: 16,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(color: ColorConstants.primaryColor)),
-                      child: CheckboxListTile(
-                        title: Text('Passport'),
-                        value: _isCheckedPassport,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            _isCheckedPassport = value!;
-                          });
-                        },
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(color: ColorConstants.primaryColor)),
-                      child: CheckboxListTile(
-                        title: Text('Auto Insurance'),
-                        value: _isCheckedAutoInsurance,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            _isCheckedAutoInsurance = value!;
-                          });
-                        },
-                      ),
-                    ),
+                    Checklist(),
                     Container(
                       height: 50,
                       child: ElevatedButton(
