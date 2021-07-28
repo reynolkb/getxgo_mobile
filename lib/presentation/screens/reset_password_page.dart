@@ -59,8 +59,20 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           onPressed: () {
             Navigator.of(context).pop();
           });
+    } else if (response == 'Email not found in database') {
+      Message.showError(
+          context: context,
+          message: response,
+          onPressed: () {
+            Navigator.of(context).pop();
+          });
     } else {
-      Message.showError(context: context, message: response, onPressed: () {});
+      Message.showError(
+          context: context,
+          message: response,
+          onPressed: () {
+            Navigator.of(context).pop();
+          });
     }
   }
 }

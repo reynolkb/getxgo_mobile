@@ -36,13 +36,31 @@ class ResetPasswordAPI {
   Future<String> getResetPasswordAttempt(
     String email,
   ) async {
-    final ParseUser user = ParseUser(null, null, email);
-    final ParseResponse parseResponse = await user.requestPasswordReset();
+    bool isEmailValid = await doCallCloudEmailExists(email);
 
-    if (parseResponse.success) {
-      return 'Password reset instructions have been sent to email!';
+    if (isEmailValid) {
+      final ParseUser user = ParseUser(null, null, email);
+      final ParseResponse parseResponse = await user.requestPasswordReset();
+
+      if (parseResponse.success) {
+        return 'Password reset instructions have been sent to email!';
+      } else {
+        return parseResponse.error!.message;
+      }
     } else {
-      return parseResponse.error!.message;
+      return 'Email not found in database';
     }
+  }
+}
+
+dynamic doCallCloudEmailExists(email) async {
+  final ParseCloudFunction function = ParseCloudFunction('emailExists');
+  final Map<String, dynamic> params = <String, dynamic>{
+    'email': email,
+  };
+  final ParseResponse parseResponse =
+      await function.execute(parameters: params);
+  if (parseResponse.success) {
+    return parseResponse.result;
   }
 }
