@@ -1,3 +1,4 @@
+import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   ParseUser? currentUser;
+  bool _isCheckedPassport = false;
+  bool _isCheckedAutoInsurance = false;
 
   Future<ParseUser?> getUser() async {
     currentUser = await ParseUser.currentUser() as ParseUser;
@@ -60,10 +63,38 @@ class _UserPageState extends State<UserPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Center(child: Text('Hello, ${snapshot.data!.username}')),
                     SizedBox(
                       height: 16,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: ColorConstants.primaryColor)),
+                      child: CheckboxListTile(
+                        title: Text('Passport'),
+                        value: _isCheckedPassport,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _isCheckedPassport = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: ColorConstants.primaryColor)),
+                      child: CheckboxListTile(
+                        title: Text('Auto Insurance'),
+                        value: _isCheckedAutoInsurance,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _isCheckedAutoInsurance = value!;
+                          });
+                        },
+                      ),
                     ),
                     Container(
                       height: 50,

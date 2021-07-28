@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Image.asset('assets/images/getxgo_logo.png'),
                 ),
                 Center(
-                  child: const Text('GetxGO',
+                  child: const Text('GetxGo',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
