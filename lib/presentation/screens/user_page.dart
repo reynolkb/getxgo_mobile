@@ -20,6 +20,21 @@ class _UserPageState extends State<UserPage> {
     return currentUser;
   }
 
+  Future<List<ParseObject?>> getChecklist(username) async {
+    final QueryBuilder<ParseObject> parseQuery =
+        QueryBuilder<ParseObject>(ParseObject('Checklist'));
+
+    parseQuery.whereEqualTo('username', username);
+    final apiResponse = await parseQuery.query();
+
+    if (apiResponse.success && apiResponse.results != null) {
+      print(apiResponse.results as List<ParseObject>);
+      return apiResponse.results as List<ParseObject>;
+    } else {
+      return [];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     void doUserLogout() async {
@@ -44,9 +59,9 @@ class _UserPageState extends State<UserPage> {
       appBar: AppBar(
         title: Text('User logged in - Current User'),
       ),
-      body: FutureBuilder<ParseUser?>(
-        future: getUser(),
-        builder: (context, snapshot) {
+      body: FutureBuilder(
+        future: Future.wait([getUser()]),
+        builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
             case ConnectionState.waiting:
@@ -63,7 +78,14 @@ class _UserPageState extends State<UserPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(child: Text('Hello, ${snapshot.data!.username}')),
+                    Center(child: Text('Hello, ${snapshot.data![0].username}')),
+                    ElevatedButton(
+                      child: const Text('Get username'),
+                      onPressed: () => getChecklist(snapshot.data![0].username),
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorConstants.primaryColor,
+                      ),
+                    ),
                     SizedBox(
                       height: 16,
                     ),
