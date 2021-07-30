@@ -2,6 +2,10 @@ import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class Checklist extends StatefulWidget {
+  bool passport;
+  bool autoInsurance;
+  Checklist({required this.passport, required this.autoInsurance});
+
   @override
   _ChecklistState createState() => _ChecklistState();
 }
@@ -19,10 +23,10 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Passport'),
-            value: _isCheckedPassport,
+            value: widget.passport,
             onChanged: (bool? value) {
               setState(() {
-                _isCheckedPassport = value!;
+                widget.passport = value!;
               });
             },
           ),
@@ -30,10 +34,10 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Auto Insurance'),
-            value: _isCheckedAutoInsurance,
+            value: widget.autoInsurance,
             onChanged: (bool? value) {
               setState(() {
-                _isCheckedAutoInsurance = value!;
+                widget.autoInsurance = value!;
               });
             },
           ),

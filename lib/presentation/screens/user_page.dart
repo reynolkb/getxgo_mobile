@@ -14,24 +14,36 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   ParseUser? currentUser;
+  Map? checklist;
 
   Future<ParseUser?> getUser() async {
-    currentUser = await ParseUser.currentUser() as ParseUser;
+    currentUser = await ParseUser.currentUser() as ParseUser?;
+
+    print(currentUser!.get('username'));
+
+    String username = currentUser!.get('username');
+    checklist = await getChecklist(username);
+    print(checklist);
+
     return currentUser;
   }
 
-  Future<List<ParseObject?>> getChecklist(username) async {
+  Future<Map?> getChecklist(username) async {
     final QueryBuilder<ParseObject> parseQuery =
         QueryBuilder<ParseObject>(ParseObject('Checklist'));
 
     parseQuery.whereEqualTo('username', username);
     final apiResponse = await parseQuery.query();
 
-    if (apiResponse.success && apiResponse.results != null) {
-      print(apiResponse.results as List<ParseObject>);
-      return apiResponse.results as List<ParseObject>;
-    } else {
-      return [];
+    if (apiResponse.success) {
+      for (var o in apiResponse.results ?? []) {
+        final object = o as ParseObject;
+
+        Map checklist = new Map();
+        checklist['passport'] = object.get<bool>('passport');
+        checklist['autoInsurance'] = object.get<bool>('passport');
+        return checklist;
+      }
     }
   }
 
@@ -79,17 +91,13 @@ class _UserPageState extends State<UserPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Center(child: Text('Hello, ${snapshot.data![0].username}')),
-                    ElevatedButton(
-                      child: const Text('Get username'),
-                      onPressed: () => getChecklist(snapshot.data![0].username),
-                      style: ElevatedButton.styleFrom(
-                        primary: ColorConstants.primaryColor,
-                      ),
-                    ),
                     SizedBox(
                       height: 16,
                     ),
-                    Checklist(),
+                    Checklist(
+                      passport: checklist!['passport'],
+                      autoInsurance: checklist!['autoInsurance'],
+                    ),
                     Container(
                       height: 50,
                       child: ElevatedButton(
