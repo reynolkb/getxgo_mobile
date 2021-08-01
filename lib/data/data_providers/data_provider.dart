@@ -28,6 +28,12 @@ class SignupAPI {
     // get objectId and username from parse response
 
     if (response.success) {
+      // without loop so you're only looking at the first one
+      // final object1 = response.results?[0] as ParseObject;
+      // print('----------------- printing username below ---------------');
+      // print(object1.get<String>('username'));
+
+      // loop through response, but there's only 1
       for (var o in response.results ?? []) {
         final object = o as ParseObject;
 
@@ -58,19 +64,6 @@ class SignupAPI {
 
         await newChecklist.save();
       }
-
-      // await createChecklist(
-      //   checklist!['userId'],
-      //   checklist!['username'],
-      //   checklist!['passport'],
-      //   checklist!['homeInsurance'],
-      //   checklist!['autoInsurance'],
-      //   checklist!['medicalCard'],
-      //   checklist!['socialSecurityCard'],
-      //   checklist!['cash'],
-      //   checklist!['jacket'],
-      // );
-
       return 'User was successfully created! Please verify your email before Login';
     } else {
       return response.error!.message;
