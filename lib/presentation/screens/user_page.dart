@@ -40,8 +40,15 @@ class _UserPageState extends State<UserPage> {
         final object = o as ParseObject;
 
         Map checklist = new Map();
+        checklist['objectId'] = object.get<String>('objectId');
         checklist['passport'] = object.get<bool>('passport');
-        checklist['autoInsurance'] = object.get<bool>('passport');
+        checklist['homeInsurance'] = object.get<bool>('homeInsurance');
+        checklist['autoInsurance'] = object.get<bool>('autoInsurance');
+        checklist['medicalCard'] = object.get<bool>('medicalCard');
+        checklist['socialSecurityCard'] =
+            object.get<bool>('socialSecurityCard');
+        checklist['cash'] = object.get<bool>('cash');
+        checklist['jacket'] = object.get<bool>('jacket');
         return checklist;
       }
     }
@@ -95,8 +102,14 @@ class _UserPageState extends State<UserPage> {
                       height: 16,
                     ),
                     Checklist(
+                      objectId: checklist!['objectId'],
                       passport: checklist!['passport'],
+                      homeInsurance: checklist!['homeInsurance'],
                       autoInsurance: checklist!['autoInsurance'],
+                      medicalCard: checklist!['medicalCard'],
+                      socialSecurityCard: checklist!['socialSecurityCard'],
+                      cash: checklist!['cash'],
+                      jacket: checklist!['jacket'],
                     ),
                     Container(
                       height: 50,
