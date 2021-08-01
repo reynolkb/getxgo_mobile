@@ -15,6 +15,8 @@ class LoginAPI {
 }
 
 class SignupAPI {
+  Map? checklist;
+
   Future<String> getSignupAttempt(
     String username,
     String password,
@@ -23,12 +25,80 @@ class SignupAPI {
     final user = ParseUser.createUser(username, password, email);
 
     var response = await user.signUp();
+    // get objectId and username from parse response
 
     if (response.success) {
+      for (var o in response.results ?? []) {
+        final object = o as ParseObject;
+
+        Map checklist = new Map();
+        // object is user
+        checklist['userId'] = object;
+        checklist['username'] = object.get<String>('username');
+        checklist['passport'] = false;
+        checklist['homeInsurance'] = false;
+        checklist['autoInsurance'] = false;
+        checklist['medicalCard'] = false;
+        checklist['socialSecurityCard'] = false;
+        checklist['cash'] = false;
+        checklist['jacket'] = false;
+
+        print(checklist);
+
+        var newChecklist = ParseObject('Checklist')
+          ..set('userId', checklist['userId'])
+          ..set('username', checklist['username'])
+          ..set('passport', checklist['passport'])
+          ..set('homeInsurance', checklist['homeInsurance'])
+          ..set('autoInsurance', checklist['autoInsurance'])
+          ..set('medicalCard', checklist['medicalCard'])
+          ..set('socialSecurityCard', checklist['socialSecurityCard'])
+          ..set('cash', checklist['cash'])
+          ..set('jacket', checklist['jacket']);
+
+        await newChecklist.save();
+      }
+
+      // await createChecklist(
+      //   checklist!['userId'],
+      //   checklist!['username'],
+      //   checklist!['passport'],
+      //   checklist!['homeInsurance'],
+      //   checklist!['autoInsurance'],
+      //   checklist!['medicalCard'],
+      //   checklist!['socialSecurityCard'],
+      //   checklist!['cash'],
+      //   checklist!['jacket'],
+      // );
+
       return 'User was successfully created! Please verify your email before Login';
     } else {
       return response.error!.message;
     }
+  }
+
+  Future<void> createChecklist(
+    String userId,
+    String username,
+    bool passport,
+    bool homeInsurance,
+    bool autoInsurance,
+    bool medicalCard,
+    bool socialSecurityCard,
+    bool cash,
+    bool jacket,
+  ) async {
+    var checklist = ParseObject('Checklist')
+      ..set('userId', userId)
+      ..set('username', username)
+      ..set('passport', passport)
+      ..set('homeInsurance', homeInsurance)
+      ..set('autoInsurance', autoInsurance)
+      ..set('medicalCard', medicalCard)
+      ..set('socialSecurityCard', socialSecurityCard)
+      ..set('cash', cash)
+      ..set('jacket', jacket);
+    await checklist.save();
   }
 }
 
