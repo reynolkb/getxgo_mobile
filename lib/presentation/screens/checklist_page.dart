@@ -1,5 +1,7 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
+import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 class Checklist extends StatefulWidget {
   String objectId;
@@ -27,9 +29,57 @@ class Checklist extends StatefulWidget {
 }
 
 class _ChecklistState extends State<Checklist> {
+  Future<ParseResponse> updateChecklist(
+    String objectId,
+    bool passport,
+    bool homeInsurance,
+    bool autoInsurance,
+    bool medicalCard,
+    bool socialSecurityCard,
+    bool cash,
+    bool jacket,
+  ) async {
+    var checklist = ParseObject('Checklist')
+      ..objectId = objectId
+      ..set('passport', passport)
+      ..set('homeInsurance', homeInsurance)
+      ..set('autoInsurance', autoInsurance)
+      ..set('medicalCard', medicalCard)
+      ..set('socialSecurityCard', socialSecurityCard)
+      ..set('cash', cash)
+      ..set('jacket', jacket);
+    final apiResponse = await checklist.save();
+    return apiResponse;
+  }
+
   @override
   Widget build(BuildContext context) {
+    void saveChecklist() async {
+      var response = await updateChecklist(
+          widget.objectId,
+          widget.passport,
+          widget.homeInsurance,
+          widget.autoInsurance,
+          widget.medicalCard,
+          widget.socialSecurityCard,
+          widget.cash,
+          widget.jacket);
+      if (response.success) {
+        Message.showSuccess(
+            context: context,
+            message: 'Checklist was successfully saved.',
+            onPressed: () {
+              // Navigator.of(context).pushNamed('user_page');
+              setState(() {});
+            });
+      } else {
+        Message.showError(context: context, message: response.error!.message);
+      }
+    }
+
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           child: CheckboxListTile(
@@ -106,6 +156,13 @@ class _ChecklistState extends State<Checklist> {
                 widget.jacket = value!;
               });
             },
+          ),
+        ),
+        Container(
+          height: 50,
+          child: ElevatedButton(
+            child: const Text('Save Checklist'),
+            onPressed: () => saveChecklist(),
           ),
         ),
       ],

@@ -111,6 +111,9 @@ class _UserPageState extends State<UserPage> {
                       cash: checklist!['cash'],
                       jacket: checklist!['jacket'],
                     ),
+                    SizedBox(
+                      height: 16,
+                    ),
                     Container(
                       height: 50,
                       child: ElevatedButton(
