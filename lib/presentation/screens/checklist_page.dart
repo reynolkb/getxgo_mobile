@@ -1,7 +1,21 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
+import 'package:bloc_architecture_app/presentation/screens/take_picture_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+
+Future<void> main() async {
+  // Ensure that plugin services are initialized so that `availableCameras()`
+  // can be called before `runApp()`
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Obtain a list of the available cameras on the device.
+  final cameras = await availableCameras();
+
+  // Get a specific camera from the list of available cameras.
+  final firstCamera = cameras.first;
+}
 
 class Checklist extends StatefulWidget {
   String objectId;
@@ -165,6 +179,12 @@ class _ChecklistState extends State<Checklist> {
             onPressed: () => saveChecklist(),
           ),
         ),
+        Container(
+          height: 50,
+          child: TakePictureScreen(
+            camera: firstCamera,
+          ),
+        )
       ],
     );
   }
