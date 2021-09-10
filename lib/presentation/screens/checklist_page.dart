@@ -1,22 +1,11 @@
-import 'package:bloc_architecture_app/core/constants/constants.dart';
-import 'package:bloc_architecture_app/presentation/screens/take_picture_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-Future<void> main() async {
-  // Ensure that plugin services are initialized so that `availableCameras()`
-  // can be called before `runApp()`
-  WidgetsFlutterBinding.ensureInitialized();
+import 'package:image_picker/image_picker.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 
-  // Obtain a list of the available cameras on the device.
-  final cameras = await availableCameras();
-
-  // Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
-}
-
+// ignore: must_be_immutable
 class Checklist extends StatefulWidget {
   String objectId;
   bool passport;
@@ -43,6 +32,13 @@ class Checklist extends StatefulWidget {
 }
 
 class _ChecklistState extends State<Checklist> {
+  late XFile imageFile;
+
+  _openCamera() async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.camera);
+    GallerySaver.saveImage(picture!.path, albumName: 'getxgo');
+  }
+
   Future<ParseResponse> updateChecklist(
     String objectId,
     bool passport,
@@ -175,16 +171,23 @@ class _ChecklistState extends State<Checklist> {
         Container(
           height: 50,
           child: ElevatedButton(
+            child: Icon(
+              Icons.camera_alt_outlined,
+              size: 30.0,
+            ),
+            onPressed: () => _openCamera(),
+          ),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Container(
+          height: 50,
+          child: ElevatedButton(
             child: const Text('Save Checklist'),
             onPressed: () => saveChecklist(),
           ),
         ),
-        Container(
-          height: 50,
-          child: TakePictureScreen(
-            camera: firstCamera,
-          ),
-        )
       ],
     );
   }
