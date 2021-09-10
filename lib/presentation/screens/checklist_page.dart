@@ -37,6 +37,13 @@ class _ChecklistState extends State<Checklist> {
   _openCamera() async {
     var picture = await ImagePicker().pickImage(source: ImageSource.camera);
     GallerySaver.saveImage(picture!.path, albumName: 'getxgo');
+    Message.showSuccess(
+        context: context,
+        message: 'Image was saved to getxgo album on your phone.',
+        onPressed: () {
+          // Navigator.of(context).pushNamed('user_page');
+          setState(() {});
+        });
   }
 
   Future<ParseResponse> updateChecklist(
