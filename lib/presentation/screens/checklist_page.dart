@@ -1,8 +1,11 @@
-import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
+import 'package:image_picker/image_picker.dart';
+import 'package:gallery_saver/gallery_saver.dart';
+
+// ignore: must_be_immutable
 class Checklist extends StatefulWidget {
   String objectId;
   bool passport;
@@ -29,6 +32,20 @@ class Checklist extends StatefulWidget {
 }
 
 class _ChecklistState extends State<Checklist> {
+  late XFile imageFile;
+
+  _openCamera() async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.camera);
+    GallerySaver.saveImage(picture!.path, albumName: 'getxgo');
+    Message.showSuccess(
+        context: context,
+        message: 'Image was saved to getxgo album on your phone.',
+        onPressed: () {
+          // Navigator.of(context).pushNamed('user_page');
+          setState(() {});
+        });
+  }
+
   Future<ParseResponse> updateChecklist(
     String objectId,
     bool passport,
@@ -157,6 +174,19 @@ class _ChecklistState extends State<Checklist> {
               });
             },
           ),
+        ),
+        Container(
+          height: 50,
+          child: ElevatedButton(
+            child: Icon(
+              Icons.camera_alt_outlined,
+              size: 30.0,
+            ),
+            onPressed: () => _openCamera(),
+          ),
+        ),
+        SizedBox(
+          height: 16,
         ),
         Container(
           height: 50,
