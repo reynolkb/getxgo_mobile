@@ -1,3 +1,4 @@
+import 'package:bloc_architecture_app/presentation/screens/checklist_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/reset_password_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/signup_page.dart';

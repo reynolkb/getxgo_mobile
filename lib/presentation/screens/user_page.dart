@@ -14,10 +14,44 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   ParseUser? currentUser;
+  Map? checklist;
 
   Future<ParseUser?> getUser() async {
-    currentUser = await ParseUser.currentUser() as ParseUser;
+    currentUser = await ParseUser.currentUser() as ParseUser?;
+
+    print(currentUser!.get('username'));
+
+    String username = currentUser!.get('username');
+    checklist = await getChecklist(username);
+    print(checklist);
+
     return currentUser;
+  }
+
+  Future<Map?> getChecklist(username) async {
+    final QueryBuilder<ParseObject> parseQuery =
+        QueryBuilder<ParseObject>(ParseObject('Checklist'));
+
+    parseQuery.whereEqualTo('username', username);
+    final apiResponse = await parseQuery.query();
+
+    if (apiResponse.success) {
+      for (var o in apiResponse.results ?? []) {
+        final object = o as ParseObject;
+
+        Map checklist = new Map();
+        checklist['objectId'] = object.get<String>('objectId');
+        checklist['passport'] = object.get<bool>('passport');
+        checklist['homeInsurance'] = object.get<bool>('homeInsurance');
+        checklist['autoInsurance'] = object.get<bool>('autoInsurance');
+        checklist['medicalCard'] = object.get<bool>('medicalCard');
+        checklist['socialSecurityCard'] =
+            object.get<bool>('socialSecurityCard');
+        checklist['cash'] = object.get<bool>('cash');
+        checklist['jacket'] = object.get<bool>('jacket');
+        return checklist;
+      }
+    }
   }
 
   @override
@@ -44,9 +78,9 @@ class _UserPageState extends State<UserPage> {
       appBar: AppBar(
         title: Text('User logged in - Current User'),
       ),
-      body: FutureBuilder<ParseUser?>(
-        future: getUser(),
-        builder: (context, snapshot) {
+      body: FutureBuilder(
+        future: Future.wait([getUser()]),
+        builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
             case ConnectionState.waiting:
@@ -63,11 +97,23 @@ class _UserPageState extends State<UserPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(child: Text('Hello, ${snapshot.data!.username}')),
+                    Center(child: Text('Hello, ${snapshot.data![0].username}')),
                     SizedBox(
                       height: 16,
                     ),
-                    Checklist(),
+                    Checklist(
+                      objectId: checklist!['objectId'],
+                      passport: checklist!['passport'],
+                      homeInsurance: checklist!['homeInsurance'],
+                      autoInsurance: checklist!['autoInsurance'],
+                      medicalCard: checklist!['medicalCard'],
+                      socialSecurityCard: checklist!['socialSecurityCard'],
+                      cash: checklist!['cash'],
+                      jacket: checklist!['jacket'],
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
                     Container(
                       height: 50,
                       child: ElevatedButton(
