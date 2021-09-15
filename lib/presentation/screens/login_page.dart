@@ -91,20 +91,25 @@ class _LoginPageState extends State<LoginPage> {
                   height: 16,
                 ),
                 Container(
-                  height: 50,
-                  child: ElevatedButton(
-                    child: const Text('Login'),
-                    onPressed: isLoggedIn ? null : () => doUserLogin(),
-                    style: ElevatedButton.styleFrom(
-                      primary: ColorConstants.primaryColor,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
                     ),
-                  ),
-                ),
+                    child: ElevatedButton(
+                      child: const Text('Login'),
+                      onPressed: isLoggedIn ? null : () => doUserLogin(),
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorConstants.primaryColor,
+                      ),
+                    )),
                 SizedBox(
                   height: 16,
                 ),
                 Container(
                   height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
                     onPressed: () =>
@@ -119,12 +124,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
                   child: ElevatedButton(
-                    child: const Text('Reset Password'),
+                    child: const Text('Forgot Password?'),
                     onPressed: () =>
                         Navigator.of(context).pushNamed('reset_password'),
                     style: ElevatedButton.styleFrom(
-                      primary: ColorConstants.primaryColor,
+                      primary: Colors.grey,
                     ),
                   ),
                 )
