@@ -38,7 +38,6 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(top: 80.0),
                   child: const Text('Welcome to the GetxGo preparendess app',
                       style: TextStyle(
-                        fontFamily: 'Montserrat',
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Color(0xff2c5977),
@@ -48,9 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 16,
                 ),
                 TextField(
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                  ),
+                  style: TextStyle(),
                   controller: controllerUsername,
                   enabled: !isLoggedIn,
                   keyboardType: TextInputType.text,
@@ -72,9 +69,6 @@ class _LoginPageState extends State<LoginPage> {
                   height: 8,
                 ),
                 TextField(
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                  ),
                   controller: controllerPassword,
                   enabled: !isLoggedIn,
                   obscureText: true,
