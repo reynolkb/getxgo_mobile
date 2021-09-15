@@ -98,11 +98,36 @@ class _UserPageState extends State<UserPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(child: Text('Hello, ${snapshot.data![0].username}')),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Text('Hello, ${snapshot.data![0].username}',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff2c5977),
+                          )),
+                    ),
+                    Text('Complete your checklist',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xff2c5977),
+                        )),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text('Step 1: Create Copies of Important Documents',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff2c5977),
+                        )),
                     SizedBox(
                       height: 16,
                     ),
                     Checklist(
+                      
                       objectId: checklist!['objectId'],
                       passport: checklist!['passport'],
                       homeInsurance: checklist!['homeInsurance'],
@@ -117,9 +142,13 @@ class _UserPageState extends State<UserPage> {
                     ),
                     Container(
                       height: 50,
+                      color: Color(0xff2c5977),
                       child: ElevatedButton(
                         child: const Text('Logout'),
                         onPressed: () => doUserLogout(),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.grey,
+                        ),
                       ),
                     ),
                   ],

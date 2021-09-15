@@ -58,6 +58,7 @@ class App extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Montserrat',
         ),
+        
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         initialRoute: '/',

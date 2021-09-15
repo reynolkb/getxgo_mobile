@@ -101,6 +101,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Passport'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.passport,
             onChanged: (bool? value) {
               setState(() {
@@ -112,6 +114,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Home Insurance'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.homeInsurance,
             onChanged: (bool? value) {
               setState(() {
@@ -123,6 +127,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Auto Insurance'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.autoInsurance,
             onChanged: (bool? value) {
               setState(() {
@@ -134,6 +140,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Medical Card'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.medicalCard,
             onChanged: (bool? value) {
               setState(() {
@@ -145,6 +153,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Social Security Card'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.socialSecurityCard,
             onChanged: (bool? value) {
               setState(() {
@@ -156,6 +166,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Cash'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.cash,
             onChanged: (bool? value) {
               setState(() {
@@ -167,6 +179,8 @@ class _ChecklistState extends State<Checklist> {
         Container(
           child: CheckboxListTile(
             title: Text('Jacket'),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.jacket,
             onChanged: (bool? value) {
               setState(() {
@@ -183,16 +197,23 @@ class _ChecklistState extends State<Checklist> {
               size: 30.0,
             ),
             onPressed: () => _openCamera(),
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xff2c5977),
+            ),
           ),
         ),
         SizedBox(
           height: 16,
         ),
         Container(
+          color: Color(0xff2c5977),
           height: 50,
           child: ElevatedButton(
             child: const Text('Save Checklist'),
             onPressed: () => saveChecklist(),
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xff2c5977),
+            ),
           ),
         ),
       ],
