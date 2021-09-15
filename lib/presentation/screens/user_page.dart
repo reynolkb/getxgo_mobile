@@ -77,6 +77,7 @@ class _UserPageState extends State<UserPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('User logged in - Current User'),
+        backgroundColor: ColorConstants.primaryColor,
       ),
       body: FutureBuilder(
         future: Future.wait([getUser()]),
