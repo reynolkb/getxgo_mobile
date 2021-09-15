@@ -17,8 +17,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           title: Text('Reset Password'),
           backgroundColor: Color(0xff2c5977),
           brightness: Brightness.dark,
-          titleTextStyle:
-              TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
+          
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(8),
