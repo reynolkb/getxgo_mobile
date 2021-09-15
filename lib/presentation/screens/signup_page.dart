@@ -114,7 +114,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
-                  ), //this doesn't show
+                  ),
+                  //this doesn't show
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
                     onPressed: () => doUserRegistration(),

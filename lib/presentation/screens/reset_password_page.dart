@@ -15,6 +15,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Reset Password'),
+          backgroundColor: Color(0xff2c5977),
+          brightness: Brightness.dark,
+          titleTextStyle:
+              TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(8),
@@ -28,17 +32,29 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 autocorrect: false,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black)),
-                    labelText: 'E-mail'),
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                    focusedBorder: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: BorderSide(
+                          color: Color(0xff2c5977),
+                        )),
+                    labelStyle: new TextStyle(color: Color(0xff2c5977)),
+                    labelText: 'Email'),
               ),
               SizedBox(
                 height: 8,
               ),
               Container(
                 height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                ),
                 child: ElevatedButton(
                   child: const Text('Reset Password'),
                   onPressed: () => doUserResetPassword(),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xff2c5977),
+                  ),
                 ),
               )
             ],
