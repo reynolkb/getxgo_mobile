@@ -88,20 +88,10 @@ class _UserPageState extends State<UserPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(
-              Icons.shopping_bag,
+              Icons.logout,
               color: Colors.white,
             ),
-            onPressed: () async {
-              String url = "https://www.getxgo.com";
-              var urllaunchable =
-                  await canLaunch(url); //canLaunch is from url_launcher package
-              if (urllaunchable) {
-                await launch(
-                    url); //launch is from url_launcher package to launch URL
-              } else {
-                print("URL can't be launched.");
-              }
-            },
+            onPressed: () => doUserLogout(),
           )
         ],
         backgroundColor: ColorConstants.primaryColor,
@@ -171,14 +161,24 @@ class _UserPageState extends State<UserPage> {
                         height: 50,
                         child: TextButton(
                           child: const Text(
-                            'Logout',
+                            'Shop GetxGo Store',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff2c5977),
                             ),
                           ),
-                          onPressed: () => doUserLogout(),
+                          onPressed: () async {
+                            String url = "https://www.getxgo.com";
+                            var urllaunchable = await canLaunch(
+                                url); //canLaunch is from url_launcher package
+                            if (urllaunchable) {
+                              await launch(
+                                  url); //launch is from url_launcher package to launch URL
+                            } else {
+                              print("URL can't be launched.");
+                            }
+                          },
                         ),
                       ),
                     ],

@@ -79,6 +79,12 @@ class _LoginPageState extends State<LoginPage> {
                       border: OutlineInputBorder(
                           borderRadius:
                               BorderRadius.all(Radius.circular(20.0))),
+                      focusedBorder: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Color(0xff2c5977),
+                          )),
+                      labelStyle: new TextStyle(color: Color(0xff2c5977)),
                       labelText: 'Password'),
                 ),
                 SizedBox(
