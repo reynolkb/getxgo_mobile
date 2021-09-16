@@ -121,13 +121,17 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                   ),
-                  child: ElevatedButton(
-                    child: const Text('Forgot Password?'),
+                  child: TextButton(
+                    child: const Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff81B6C9),
+                      ),
+                    ),
                     onPressed: () =>
                         Navigator.of(context).pushNamed('reset_password'),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.grey,
-                    ),
                   ),
                 )
               ],

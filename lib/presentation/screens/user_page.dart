@@ -76,7 +76,11 @@ class _UserPageState extends State<UserPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('User logged in - Current User'),
+        title: Image.asset(
+          "assets/images/getxgo_white_logo.png",
+          fit: BoxFit.contain,
+          height: 40,
+        ),
         backgroundColor: ColorConstants.primaryColor,
       ),
       body: FutureBuilder(
@@ -117,17 +121,16 @@ class _UserPageState extends State<UserPage> {
                       height: 16,
                     ),
                     Text('Step 1: Create Copies of Important Documents',
-                        textAlign: TextAlign.left,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff2c5977),
+                          color: Color(0xffDF7C39),
                         )),
                     SizedBox(
                       height: 16,
                     ),
                     Checklist(
-                      
                       objectId: checklist!['objectId'],
                       passport: checklist!['passport'],
                       homeInsurance: checklist!['homeInsurance'],
@@ -142,13 +145,16 @@ class _UserPageState extends State<UserPage> {
                     ),
                     Container(
                       height: 50,
-                      color: Color(0xff2c5977),
-                      child: ElevatedButton(
-                        child: const Text('Logout'),
-                        onPressed: () => doUserLogout(),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.grey,
+                      child: TextButton(
+                        child: const Text(
+                          'Logout',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff2c5977),
+                          ),
                         ),
+                        onPressed: () => doUserLogout(),
                       ),
                     ),
                   ],

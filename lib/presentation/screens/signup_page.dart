@@ -18,7 +18,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter Sign Up'),
+          title: const Text('Sign Up'),
           backgroundColor: ColorConstants.primaryColor,
           brightness: Brightness.dark,
         ),

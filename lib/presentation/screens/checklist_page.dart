@@ -36,10 +36,11 @@ class _ChecklistState extends State<Checklist> {
 
   _openCamera() async {
     var picture = await ImagePicker().pickImage(source: ImageSource.camera);
-    GallerySaver.saveImage(picture!.path, albumName: 'getxgo');
+    GallerySaver.saveImage(picture!.path, albumName: 'GetxGo');
     Message.showSuccess(
         context: context,
-        message: 'Image was saved to getxgo album on your phone.',
+        message:
+            'Image was saved to GetxGo album on your phone. Please print out your docs',
         onPressed: () {
           // Navigator.of(context).pushNamed('user_page');
           setState(() {});
@@ -100,9 +101,14 @@ class _ChecklistState extends State<Checklist> {
       children: [
         Container(
           child: CheckboxListTile(
-            title: Text('Passport'),
+            title: Text('Passport',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
             checkColor: Colors.white,
-            activeColor: Color(0xff2c5977),
+            activeColor: Color(0xffDF7C39),
             value: widget.passport,
             onChanged: (bool? value) {
               setState(() {
@@ -113,9 +119,14 @@ class _ChecklistState extends State<Checklist> {
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Home Insurance'),
+            title: Text('Home Insurance',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
             checkColor: Colors.white,
-            activeColor: Color(0xff2c5977),
+            activeColor: Color(0xffDF7C39),
             value: widget.homeInsurance,
             onChanged: (bool? value) {
               setState(() {
@@ -126,9 +137,14 @@ class _ChecklistState extends State<Checklist> {
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Auto Insurance'),
+            title: Text('Auto Insurance',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
             checkColor: Colors.white,
-            activeColor: Color(0xff2c5977),
+            activeColor: Color(0xffDF7C39),
             value: widget.autoInsurance,
             onChanged: (bool? value) {
               setState(() {
@@ -139,9 +155,14 @@ class _ChecklistState extends State<Checklist> {
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Medical Card'),
+            title: Text('Medical Card',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
             checkColor: Colors.white,
-            activeColor: Color(0xff2c5977),
+            activeColor: Color(0xffDF7C39),
             value: widget.medicalCard,
             onChanged: (bool? value) {
               setState(() {
@@ -152,9 +173,14 @@ class _ChecklistState extends State<Checklist> {
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Social Security Card'),
+            title: Text('Social Security Card',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
             checkColor: Colors.white,
-            activeColor: Color(0xff2c5977),
+            activeColor: Color(0xffDF7C39),
             value: widget.socialSecurityCard,
             onChanged: (bool? value) {
               setState(() {
@@ -165,7 +191,12 @@ class _ChecklistState extends State<Checklist> {
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Cash'),
+            title: Text('Cash',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2c5977),
+                )),
             checkColor: Colors.white,
             activeColor: Color(0xff2c5977),
             value: widget.cash,
@@ -178,7 +209,12 @@ class _ChecklistState extends State<Checklist> {
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Jacket'),
+            title: Text('Jacket',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2c5977),
+                )),
             checkColor: Colors.white,
             activeColor: Color(0xff2c5977),
             value: widget.jacket,
@@ -198,7 +234,7 @@ class _ChecklistState extends State<Checklist> {
             ),
             onPressed: () => _openCamera(),
             style: ElevatedButton.styleFrom(
-              primary: Color(0xff2c5977),
+              primary: Color(0xffDF7C39),
             ),
           ),
         ),
