@@ -95,11 +95,16 @@ class _ChecklistState extends State<Checklist> {
       }
     }
 
-    return Column(
+    return new SingleChildScrollView(
+        child: new Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+          padding: EdgeInsets.only(
+            top: 5.0,
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
             title: Text('Passport',
                 style: TextStyle(
@@ -115,9 +120,26 @@ class _ChecklistState extends State<Checklist> {
                 widget.passport = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(5, 5),
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
             title: Text('Home Insurance',
                 style: TextStyle(
@@ -133,9 +155,25 @@ class _ChecklistState extends State<Checklist> {
                 widget.homeInsurance = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
             title: Text('Auto Insurance',
                 style: TextStyle(
@@ -151,9 +189,25 @@ class _ChecklistState extends State<Checklist> {
                 widget.autoInsurance = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
             title: Text('Medical Card',
                 style: TextStyle(
@@ -169,9 +223,25 @@ class _ChecklistState extends State<Checklist> {
                 widget.medicalCard = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
             title: Text('Social Security Card',
                 style: TextStyle(
@@ -187,6 +257,19 @@ class _ChecklistState extends State<Checklist> {
                 widget.socialSecurityCard = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
@@ -205,6 +288,14 @@ class _ChecklistState extends State<Checklist> {
                 widget.cash = value!;
               });
             },
+            secondary: Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  Icons.cases_sharp,
+                  size: 40.0,
+                  color: Color(0xff2c5977),
+                )),
           ),
         ),
         Container(
@@ -223,6 +314,66 @@ class _ChecklistState extends State<Checklist> {
                 widget.jacket = value!;
               });
             },
+            secondary: Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  Icons.cases_sharp,
+                  size: 40.0,
+                  color: Color(0xff2c5977),
+                )),
+          ),
+        ),
+        Container(
+          child: CheckboxListTile(
+            title: Text('Other Personal Essentials',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2c5977),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
+            value: widget.jacket,
+            onChanged: (bool? value) {
+              setState(() {
+                widget.jacket = value!;
+              });
+            },
+            secondary: Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  Icons.cases_sharp,
+                  size: 40.0,
+                  color: Color(0xff2c5977),
+                )),
+          ),
+        ),
+        Container(
+          child: CheckboxListTile(
+            title: Text('Backup Medications',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2c5977),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
+            value: widget.jacket,
+            onChanged: (bool? value) {
+              setState(() {
+                widget.jacket = value!;
+              });
+            },
+            secondary: Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  Icons.cases_sharp,
+                  size: 40.0,
+                  color: Color(0xff2c5977),
+                )),
           ),
         ),
         Container(
@@ -253,6 +404,6 @@ class _ChecklistState extends State<Checklist> {
           ),
         ),
       ],
-    );
+    ));
   }
 }

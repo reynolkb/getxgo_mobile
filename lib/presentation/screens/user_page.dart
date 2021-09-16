@@ -6,6 +6,9 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 import 'checklist_page.dart';
 import 'login_page.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+const _url = 'https://flutter.dev';
 
 class UserPage extends StatefulWidget {
   @override
@@ -49,6 +52,7 @@ class _UserPageState extends State<UserPage> {
             object.get<bool>('socialSecurityCard');
         checklist['cash'] = object.get<bool>('cash');
         checklist['jacket'] = object.get<bool>('jacket');
+
         return checklist;
       }
     }
@@ -81,87 +85,108 @@ class _UserPageState extends State<UserPage> {
           fit: BoxFit.contain,
           height: 40,
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.shopping_bag,
+              color: Colors.white,
+            ),
+            onPressed: () async {
+              String url = "https://www.getxgo.com";
+              var urllaunchable =
+                  await canLaunch(url); //canLaunch is from url_launcher package
+              if (urllaunchable) {
+                await launch(
+                    url); //launch is from url_launcher package to launch URL
+              } else {
+                print("URL can't be launched.");
+              }
+            },
+          )
+        ],
         backgroundColor: ColorConstants.primaryColor,
       ),
-      body: FutureBuilder(
-        future: Future.wait([getUser()]),
-        builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.waiting:
-              return Center(
-                child: Container(
-                    width: 100,
-                    height: 100,
-                    child: CircularProgressIndicator()),
-              );
-            default:
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      child: Text('Hello, ${snapshot.data![0].username}',
+      body: SingleChildScrollView(
+        child: FutureBuilder(
+          future: Future.wait([getUser()]),
+          builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+              case ConnectionState.waiting:
+                return Center(
+                  child: Container(
+                      width: 100,
+                      height: 100,
+                      child: CircularProgressIndicator()),
+                );
+              default:
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        child: Text('Hello, ${snapshot.data![0].username}',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff2c5977),
+                            )),
+                      ),
+                      Text('Complete your checklist',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                             color: Color(0xff2c5977),
                           )),
-                    ),
-                    Text('Complete your checklist',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xff2c5977),
-                        )),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text('Step 1: Create Copies of Important Documents',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xffDF7C39),
-                        )),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Checklist(
-                      objectId: checklist!['objectId'],
-                      passport: checklist!['passport'],
-                      homeInsurance: checklist!['homeInsurance'],
-                      autoInsurance: checklist!['autoInsurance'],
-                      medicalCard: checklist!['medicalCard'],
-                      socialSecurityCard: checklist!['socialSecurityCard'],
-                      cash: checklist!['cash'],
-                      jacket: checklist!['jacket'],
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Container(
-                      height: 50,
-                      child: TextButton(
-                        child: const Text(
-                          'Logout',
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Text('Step 1: Create Copies of Important Documents',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xff2c5977),
-                          ),
-                        ),
-                        onPressed: () => doUserLogout(),
+                            color: Color(0xffDF7C39),
+                          )),
+                      SizedBox(
+                        height: 16,
                       ),
-                    ),
-                  ],
-                ),
-              );
-          }
-        },
+                      Checklist(
+                        objectId: checklist!['objectId'],
+                        passport: checklist!['passport'],
+                        homeInsurance: checklist!['homeInsurance'],
+                        autoInsurance: checklist!['autoInsurance'],
+                        medicalCard: checklist!['medicalCard'],
+                        socialSecurityCard: checklist!['socialSecurityCard'],
+                        cash: checklist!['cash'],
+                        jacket: checklist!['jacket'],
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Container(
+                        height: 50,
+                        child: TextButton(
+                          child: const Text(
+                            'Logout',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff2c5977),
+                            ),
+                          ),
+                          onPressed: () => doUserLogout(),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+            }
+          },
+        ),
       ),
     );
   }
