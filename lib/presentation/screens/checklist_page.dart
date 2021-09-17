@@ -36,10 +36,11 @@ class _ChecklistState extends State<Checklist> {
 
   _openCamera() async {
     var picture = await ImagePicker().pickImage(source: ImageSource.camera);
-    GallerySaver.saveImage(picture!.path, albumName: 'getxgo');
+    GallerySaver.saveImage(picture!.path, albumName: 'GetxGo');
     Message.showSuccess(
         context: context,
-        message: 'Image was saved to getxgo album on your phone.',
+        message:
+            'Image was saved to GetxGo album on your phone. Please print out your docs',
         onPressed: () {
           // Navigator.of(context).pushNamed('user_page');
           setState(() {});
@@ -94,87 +95,287 @@ class _ChecklistState extends State<Checklist> {
       }
     }
 
-    return Column(
+    return new SingleChildScrollView(
+        child: new Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+          padding: EdgeInsets.only(
+            top: 5.0,
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
-            title: Text('Passport'),
+            title: Text('Passport',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xffDF7C39),
             value: widget.passport,
             onChanged: (bool? value) {
               setState(() {
                 widget.passport = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(5, 5),
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
-            title: Text('Home Insurance'),
+            title: Text('Home Insurance',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xffDF7C39),
             value: widget.homeInsurance,
             onChanged: (bool? value) {
               setState(() {
                 widget.homeInsurance = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
-            title: Text('Auto Insurance'),
+            title: Text('Auto Insurance',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xffDF7C39),
             value: widget.autoInsurance,
             onChanged: (bool? value) {
               setState(() {
                 widget.autoInsurance = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
-            title: Text('Medical Card'),
+            title: Text('Medical Card',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xffDF7C39),
             value: widget.medicalCard,
             onChanged: (bool? value) {
               setState(() {
                 widget.medicalCard = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
+          padding: EdgeInsets.only(
+            bottom: 20.0,
+          ),
           child: CheckboxListTile(
-            title: Text('Social Security Card'),
+            title: Text('Social Security Card',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffDF7C39),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xffDF7C39),
             value: widget.socialSecurityCard,
             onChanged: (bool? value) {
               setState(() {
                 widget.socialSecurityCard = value!;
               });
             },
+            secondary: Container(
+              height: 50,
+              child: ElevatedButton(
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  size: 30.0,
+                ),
+                onPressed: () => _openCamera(),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDF7C39),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Cash'),
+            title: Text('Cash',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2c5977),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.cash,
             onChanged: (bool? value) {
               setState(() {
                 widget.cash = value!;
               });
             },
+            secondary: Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  Icons.cases_sharp,
+                  size: 40.0,
+                  color: Color(0xff2c5977),
+                )),
           ),
         ),
         Container(
           child: CheckboxListTile(
-            title: Text('Jacket'),
+            title: Text('Jacket',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2c5977),
+                )),
+            checkColor: Colors.white,
+            activeColor: Color(0xff2c5977),
             value: widget.jacket,
             onChanged: (bool? value) {
               setState(() {
                 widget.jacket = value!;
               });
             },
+            secondary: Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  Icons.cases_sharp,
+                  size: 40.0,
+                  color: Color(0xff2c5977),
+                )),
           ),
         ),
+        // // // Container(
+        // // //   child: CheckboxListTile(
+        // // //     title: Text('Other Personal Essentials',
+        // // //         style: TextStyle(
+        // // //           fontSize: 15,
+        // // //           fontWeight: FontWeight.bold,
+        // // //           color: Color(0xff2c5977),
+        // // //         )),
+        // // //     checkColor: Colors.white,
+        // // //     activeColor: Color(0xff2c5977),
+        // // //     value: widget.jacket,
+        // // //     onChanged: (bool? value) {
+        // // //       setState(() {
+        // // //         widget.jacket = value!;
+        // // //       });
+        // // //     },
+        // // //     secondary: Container(
+        // // //         height: 50,
+        // // //         width: 50,
+        // // //         child: Icon(
+        // // //           Icons.cases_sharp,
+        // // //           size: 40.0,
+        // // //           color: Color(0xff2c5977),
+        // // //         )),
+        // // //   ),
+        // // // ),
+        // // // Container(
+        // // //   child: CheckboxListTile(
+        // // //     title: Text('Backup Medications',
+        // // //         style: TextStyle(
+        // // //           fontSize: 15,
+        // // //           fontWeight: FontWeight.bold,
+        // // //           color: Color(0xff2c5977),
+        // // //         )),
+        // // //     checkColor: Colors.white,
+        // // //     activeColor: Color(0xff2c5977),
+        // // //     value: widget.jacket,
+        // // //     onChanged: (bool? value) {
+        // // //       setState(() {
+        // // //         widget.jacket = value!;
+        // // //       });
+        // // //     },
+        // //     secondary: Container(
+        // //         height: 50,
+        // //         width: 50,
+        // //         child: Icon(
+        // //           Icons.cases_sharp,
+        // //           size: 40.0,
+        // //           color: Color(0xff2c5977),
+        // //         )),
+        //   ),
+        // ),
         Container(
           height: 50,
           child: ElevatedButton(
@@ -183,6 +384,9 @@ class _ChecklistState extends State<Checklist> {
               size: 30.0,
             ),
             onPressed: () => _openCamera(),
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xffDF7C39),
+            ),
           ),
         ),
         SizedBox(
@@ -193,9 +397,12 @@ class _ChecklistState extends State<Checklist> {
           child: ElevatedButton(
             child: const Text('Save Checklist'),
             onPressed: () => saveChecklist(),
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xff2c5977),
+            ),
           ),
         ),
       ],
-    );
+    ));
   }
 }
