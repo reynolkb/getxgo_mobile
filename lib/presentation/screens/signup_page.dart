@@ -18,7 +18,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter Sign Up'),
+          title: const Text('Sign Up'),
           backgroundColor: ColorConstants.primaryColor,
           brightness: Brightness.dark,
         ),
@@ -29,20 +29,21 @@ class _SignUpPageState extends State<SignUpPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  height: 200,
+                  height: 70,
                   child: Image.asset('assets/images/getxgo_logo.png'),
                 ),
-                Center(
-                  child: const Text('GetxGo',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 80.0),
+                  child: const Text('Create your account',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff2c5977),
+                      )),
                 ),
                 SizedBox(
                   height: 16,
-                ),
-                Center(
-                  child: const Text('User registration',
-                      style: TextStyle(fontSize: 16)),
                 ),
                 SizedBox(
                   height: 16,
@@ -54,7 +55,14 @@ class _SignUpPageState extends State<SignUpPage> {
                   autocorrect: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      focusedBorder: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Color(0xff2c5977),
+                          )),
+                      labelStyle: new TextStyle(color: Color(0xff2c5977)),
                       labelText: 'Username'),
                 ),
                 SizedBox(
@@ -67,8 +75,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   autocorrect: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
-                      labelText: 'E-mail'),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      focusedBorder: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Color(0xff2c5977),
+                          )),
+                      labelStyle: new TextStyle(color: Color(0xff2c5977)),
+                      labelText: 'Email'),
                 ),
                 SizedBox(
                   height: 8,
@@ -81,7 +96,14 @@ class _SignUpPageState extends State<SignUpPage> {
                   autocorrect: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      focusedBorder: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Color(0xff2c5977),
+                          )),
+                      labelStyle: new TextStyle(color: Color(0xff2c5977)),
                       labelText: 'Password'),
                 ),
                 SizedBox(
@@ -89,6 +111,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 Container(
                   height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  //this doesn't show
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
                     onPressed: () => doUserRegistration(),

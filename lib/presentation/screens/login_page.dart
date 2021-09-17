@@ -3,6 +3,7 @@ import 'package:bloc_architecture_app/logic/cubit/login/login_cubit.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/src/material/colors.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -29,18 +30,24 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  height: 200,
+                  height: 70,
                   child: Image.asset('assets/images/getxgo_logo.png'),
                 ),
-                Center(
-                  child: const Text('GetxGo',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 80.0),
+                  child: const Text('Welcome to the GetxGo preparendess app',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff2c5977),
+                      )),
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 TextField(
+                  style: TextStyle(),
                   controller: controllerUsername,
                   enabled: !isLoggedIn,
                   keyboardType: TextInputType.text,
@@ -48,7 +55,14 @@ class _LoginPageState extends State<LoginPage> {
                   autocorrect: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      focusedBorder: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Color(0xff2c5977),
+                          )),
+                      labelStyle: new TextStyle(color: Color(0xff2c5977)),
                       labelText: 'Username'),
                 ),
                 SizedBox(
@@ -63,27 +77,39 @@ class _LoginPageState extends State<LoginPage> {
                   autocorrect: false,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      focusedBorder: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Color(0xff2c5977),
+                          )),
+                      labelStyle: new TextStyle(color: Color(0xff2c5977)),
                       labelText: 'Password'),
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 Container(
-                  height: 50,
-                  child: ElevatedButton(
-                    child: const Text('Login'),
-                    onPressed: isLoggedIn ? null : () => doUserLogin(),
-                    style: ElevatedButton.styleFrom(
-                      primary: ColorConstants.primaryColor,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
                     ),
-                  ),
-                ),
+                    child: ElevatedButton(
+                      child: const Text('Login'),
+                      onPressed: isLoggedIn ? null : () => doUserLogin(),
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorConstants.primaryColor,
+                      ),
+                    )),
                 SizedBox(
                   height: 16,
                 ),
                 Container(
                   height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
                     onPressed: () =>
@@ -98,13 +124,20 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   height: 50,
-                  child: ElevatedButton(
-                    child: const Text('Reset Password'),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  child: TextButton(
+                    child: const Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff81B6C9),
+                      ),
+                    ),
                     onPressed: () =>
                         Navigator.of(context).pushNamed('reset_password'),
-                    style: ElevatedButton.styleFrom(
-                      primary: ColorConstants.primaryColor,
-                    ),
                   ),
                 )
               ],

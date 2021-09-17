@@ -55,7 +55,10 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         title: Strings.appTitle,
-        theme: AppTheme.lightTheme,
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+        ),
+        
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         initialRoute: '/',

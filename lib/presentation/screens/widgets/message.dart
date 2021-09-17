@@ -20,6 +20,9 @@ class Message {
                   onPressed();
                 }
               },
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xff2c5977),
+              ),
             ),
           ],
         );

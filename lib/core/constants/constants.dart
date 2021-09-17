@@ -5,7 +5,7 @@ class Strings {
   static final appTitle = 'App Name';
 
   // HomeScreen
-  static final loginScreenTitle = 'Login Screen';
+  static final loginScreenTitle = 'Login';
   static final homeScreenCenterText = 'Welcome to Flutterly!';
 }
 
