@@ -95,6 +95,7 @@ class _UserPageState extends State<UserPage> {
           )
         ],
         backgroundColor: ColorConstants.primaryColor,
+        brightness: Brightness.dark,
       ),
       body: SingleChildScrollView(
         child: FutureBuilder(
