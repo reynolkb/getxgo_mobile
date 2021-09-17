@@ -39,8 +39,7 @@ class _ChecklistState extends State<Checklist> {
     GallerySaver.saveImage(picture!.path, albumName: 'GetxGo');
     Message.showSuccess(
         context: context,
-        message:
-            'Image was saved to GetxGo album on your phone. Please print out your docs',
+        message: 'Image was saved to GetxGo album on your phone.',
         onPressed: () {
           // Navigator.of(context).pushNamed('user_page');
           setState(() {});

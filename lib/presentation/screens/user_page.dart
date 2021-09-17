@@ -161,8 +161,11 @@ class _UserPageState extends State<UserPage> {
                       Container(
                         height: 50,
                         child: TextButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xffC6DCE4),
+                          ),
                           child: const Text(
-                            'Shop GetxGo Store',
+                            '\u{1F6CD} \u{25B6} Shop GetxGo Store',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
