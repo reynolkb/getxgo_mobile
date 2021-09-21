@@ -10,6 +10,8 @@ import 'logic/cubit/reset_password/reset_password_cubit.dart';
 import 'logic/cubit/signup/signup_cubit.dart';
 import 'logic/debug/app_bloc_observer.dart';
 import 'presentation/router/app_router.dart';
+// import 'presentation/screens/cupertino_nav_bar.dart';
+import 'presentation/screens/bottom_nav.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,10 +57,10 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         title: Strings.appTitle,
+        home: TabNavigator(),
         theme: ThemeData(
           fontFamily: 'Montserrat',
         ),
-        
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         initialRoute: '/',

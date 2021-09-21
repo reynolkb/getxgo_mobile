@@ -1,19 +1,20 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
+import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
+import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
+import 'package:bloc_architecture_app/presentation/screens/checklist_page.dart';
+import 'package:bloc_architecture_app/presentation/screens/ready_guide.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/material.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 
-import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import 'checklist_page.dart';
-import 'login_page.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-class UserPage extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _UserPageState createState() => _UserPageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _UserPageState extends State<UserPage> {
+class _HomeState extends State<Home> {
   ParseUser? currentUser;
   Map? checklist;
 
@@ -34,26 +35,6 @@ class _UserPageState extends State<UserPage> {
         QueryBuilder<ParseObject>(ParseObject('Checklist'));
 
     parseQuery.whereEqualTo('username', username);
-    final apiResponse = await parseQuery.query();
-
-    if (apiResponse.success) {
-      for (var o in apiResponse.results ?? []) {
-        final object = o as ParseObject;
-
-        Map checklist = new Map();
-        checklist['objectId'] = object.get<String>('objectId');
-        checklist['passport'] = object.get<bool>('passport');
-        checklist['homeInsurance'] = object.get<bool>('homeInsurance');
-        checklist['autoInsurance'] = object.get<bool>('autoInsurance');
-        checklist['medicalCard'] = object.get<bool>('medicalCard');
-        checklist['socialSecurityCard'] =
-            object.get<bool>('socialSecurityCard');
-        checklist['cash'] = object.get<bool>('cash');
-        checklist['jacket'] = object.get<bool>('jacket');
-
-        return checklist;
-      }
-    }
   }
 
   @override
@@ -117,14 +98,14 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        child: Text('Hello, ${snapshot.data![0].username}',
+                        child: Text('\nHello, ${snapshot.data![0].username}',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff2c5977),
                             )),
                       ),
-                      Text('Complete your checklist',
+                      Text('\nWelcome to the GetxGo preparedenss app',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -133,25 +114,8 @@ class _UserPageState extends State<UserPage> {
                       SizedBox(
                         height: 16,
                       ),
-                      Text('Step 1: Create Copies of Important Documents',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xffDF7C39),
-                          )),
                       SizedBox(
                         height: 16,
-                      ),
-                      Checklist(
-                        objectId: checklist!['objectId'],
-                        passport: checklist!['passport'],
-                        homeInsurance: checklist!['homeInsurance'],
-                        autoInsurance: checklist!['autoInsurance'],
-                        medicalCard: checklist!['medicalCard'],
-                        socialSecurityCard: checklist!['socialSecurityCard'],
-                        cash: checklist!['cash'],
-                        jacket: checklist!['jacket'],
                       ),
                       SizedBox(
                         height: 16,
