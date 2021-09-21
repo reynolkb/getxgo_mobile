@@ -230,42 +230,41 @@ class _HomeState extends State<Home> {
                               child: Align(
                                 alignment: Alignment.center,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20.0),
+                                  borderRadius: BorderRadius.circular(5.0),
                                   child: Image.asset(
                                       "assets/images/getxgo_shop.png",
-                                      height: 200.0,
+                                      // height: 100.0,
                                       fit: BoxFit.fill),
                                 ),
                               ),
-                              width: 100.0,
+                              width: 80.0,
                             ),
                             Container(
                               padding: const EdgeInsets.only(right: 10.0),
                               child: Align(
                                 alignment: Alignment.center,
-                                child: Text('getxgokits1',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
-                              ),
-                              width: 150.0,
-                              color: Color(0xff345D98),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('getxgokits2',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: Image.asset(
+                                      "assets/images/fire_getxgokit.png", // height: 100.0,
+                                      fit: BoxFit.fill),
+                                ),
                               ),
                               width: 160.0,
-                              color: Color(0xffEED023),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: Image.asset(
+                                      "assets/images/fire_getxgokit.png",
+                                      // height: 100.0,
+                                      fit: BoxFit.fill),
+                                ),
+                              ),
+                              width: 160.0,
                             ),
                           ],
                         ),

@@ -14,7 +14,7 @@ class TabNavigator extends StatefulWidget {
 class _TabNavigatorState extends State<TabNavigator> {
   //定义默认状态和点击状态的颜色
   Color _defaultColor = Color(0xff2c5977);
-  Color _activeColor = Color(0xffC6DCE4);
+  Color _activeColor = Color(0xff2A75A7);
   int _currentIndex = 0;
 
   //定义一个pagecontroller 用于控制指定页面的显示
