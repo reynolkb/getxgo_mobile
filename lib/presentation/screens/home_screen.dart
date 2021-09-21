@@ -1,7 +1,7 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
-import 'package:bloc_architecture_app/presentation/screens/widgets/home.dart';
+import 'package:bloc_architecture_app/presentation/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
