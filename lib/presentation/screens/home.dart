@@ -105,20 +105,170 @@ class _HomeState extends State<Home> {
                               color: Color(0xff2c5977),
                             )),
                       ),
-                      Text('\nWelcome to the GetxGo preparedenss app',
+                      Text('\nWelcome to the GetxGo preparedenss app.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
                             color: Color(0xff2c5977),
                           )),
                       SizedBox(
-                        height: 16,
+                        height: 30,
                       ),
-                      SizedBox(
-                        height: 16,
+                      Column(
+                        crossAxisAlignment:
+                            CrossAxisAlignment.stretch, // add this
+                        children: <Widget>[
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(5.0),
+                              topRight: Radius.circular(5.0),
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => UserPage()),
+                                );
+                              },
+                              child: Container(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  child: Image.asset(
+                                      "assets/images/checklist_home.png",
+                                      height: 150.0,
+                                      fit: BoxFit.fill),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 16,
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 20.0),
+                        height: 200.0,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            Container(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('FIRE',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 160.0,
+                              color: Color(0xffD02D1C),
+                            ),
+                            Container(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('FLOOD',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 160.0,
+                              color: Color(0xff345D98),
+                            ),
+                            Container(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('EARTHQUAKE',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 160.0,
+                              color: Color(0xffEED023),
+                            ),
+                            Container(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('HURRICANE',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 160.0,
+                              color: Color(0xff3A7359),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('TORNADO',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 160.0,
+                              color: Color(0xff99B1C9),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 20.0),
+                        height: 200.0,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  child: Image.asset(
+                                      "assets/images/getxgo_shop.png",
+                                      height: 200.0,
+                                      fit: BoxFit.fill),
+                                ),
+                              ),
+                              width: 100.0,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('getxgokits1',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 150.0,
+                              color: Color(0xff345D98),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('getxgokits2',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              width: 160.0,
+                              color: Color(0xffEED023),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         height: 50,
@@ -135,7 +285,8 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           onPressed: () async {
-                            String url = "https://www.getxgo.com";
+                            String url =
+                                "https://getxgo.com/collections/all-products";
                             var urllaunchable = await canLaunch(
                                 url); //canLaunch is from url_launcher package
                             if (urllaunchable) {

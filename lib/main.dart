@@ -58,6 +58,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
         title: Strings.appTitle,
         home: TabNavigator(),
+        
         theme: ThemeData(
           fontFamily: 'Montserrat',
         ),

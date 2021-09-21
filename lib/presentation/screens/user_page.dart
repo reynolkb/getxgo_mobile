@@ -78,11 +78,13 @@ class _UserPageState extends State<UserPage> {
 
     return Scaffold(
       appBar: AppBar(
+        
         title: Image.asset(
           "assets/images/getxgo_white_logo.png",
           fit: BoxFit.contain,
           height: 40,
         ),
+        
         actions: <Widget>[
           IconButton(
             icon: Icon(
