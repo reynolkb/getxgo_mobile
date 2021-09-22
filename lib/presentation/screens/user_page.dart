@@ -57,7 +57,9 @@ class _UserPageState extends State<UserPage> {
   }
 
   @override
+  
   Widget build(BuildContext context) {
+    
     void doUserLogout() async {
       var response = await currentUser!.logout();
       if (response.success) {
@@ -75,8 +77,10 @@ class _UserPageState extends State<UserPage> {
         Message.showError(context: context, message: response.error!.message);
       }
     }
+    
 
     return Scaffold(
+      
       appBar: AppBar(
         
         title: Image.asset(
@@ -97,7 +101,11 @@ class _UserPageState extends State<UserPage> {
         backgroundColor: ColorConstants.primaryColor,
         brightness: Brightness.dark,
       ),
+      
+      
       body: SingleChildScrollView(
+        
+        
         child: FutureBuilder(
           future: Future.wait([getUser()]),
           builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {

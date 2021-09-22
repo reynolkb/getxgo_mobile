@@ -9,6 +9,33 @@ import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart'
 
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
+_launchURL() async {
+  const url = 'https://getxgo.com';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURL1() async {
+  const url = 'https://getxgo.com/products/emergency-go-kit';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURL2() async {
+  const url = 'https://getxgo.com/products/getxgokit';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -161,7 +188,7 @@ class _HomeState extends State<Home> {
                                     )),
                               ),
                               width: 160.0,
-                              color: Color(0xffD02D1C),
+                              color: Color(0xffDF7C39),
                             ),
                             Container(
                               child: Align(
@@ -226,75 +253,41 @@ class _HomeState extends State<Home> {
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
                             Container(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  child: Image.asset(
-                                      "assets/images/getxgo_shop.png",
-                                      // height: 100.0,
-                                      fit: BoxFit.fill),
+                              child: GestureDetector(
+                                onTap: _launchURL,
+                                child: Image.asset(
+                                  'assets/images/getxgo_shop.png', // On click should redirect to an URL
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                              width: 80.0,
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                             Container(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  child: Image.asset(
-                                      "assets/images/waterproofkit.png", // height: 100.0,
-                                      fit: BoxFit.fill),
+                              child: GestureDetector(
+                                onTap: _launchURL1,
+                                child: Image.asset(
+                                  'assets/images/waterproofkit.png', // On click should redirect to an URL
+                                  // width: 80.0,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                              width: 160.0,
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                             Container(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  child: Image.asset(
-                                      "assets/images/fire_getxgokit.png",
-                                      // height: 100.0,
-                                      fit: BoxFit.fill),
+                              child: GestureDetector(
+                                onTap: _launchURL2,
+                                child: Image.asset(
+                                  'assets/images/fire_getxgokit.png', // On click should redirect to an URL
+                                  // width: 80.0,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                              width: 160.0,
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                           ],
-                        ),
-                      ),
-                      Container(
-                        height: 50,
-                        child: TextButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xffC6DCE4),
-                          ),
-                          child: const Text(
-                            '\u{1F6CD} \u{25B6} Shop GetxGo Store',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff2c5977),
-                            ),
-                          ),
-                          onPressed: () async {
-                            String url =
-                                "https://getxgo.com/collections/all-products";
-                            var urllaunchable = await canLaunch(
-                                url); //canLaunch is from url_launcher package
-                            if (urllaunchable) {
-                              await launch(
-                                  url); //launch is from url_launcher package to launch URL
-                            } else {
-                              print("URL can't be launched.");
-                            }
-                          },
                         ),
                       ),
                     ],

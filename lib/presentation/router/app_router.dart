@@ -3,6 +3,8 @@ import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/reset_password_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/signup_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
+import 'package:bloc_architecture_app/presentation/screens/home.dart';
+
 import 'package:flutter/material.dart';
 
 import '../screens/home_screen.dart';
@@ -20,6 +22,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => UserPage());
       case 'reset_password':
         return MaterialPageRoute(builder: (_) => ResetPasswordPage());
+      case 'home':
+        return MaterialPageRoute(builder: (_) => Home());
       default:
         return null;
     }

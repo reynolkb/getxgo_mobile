@@ -3,7 +3,7 @@ import 'home_screen.dart';
 import 'user_page.dart';
 import 'ready_guide.dart';
 
-//底部导航栏实现不同page的切换
+//
 class TabNavigator extends StatefulWidget {
   @override
   _TabNavigatorState createState() {
@@ -12,12 +12,10 @@ class TabNavigator extends StatefulWidget {
 }
 
 class _TabNavigatorState extends State<TabNavigator> {
-  //定义默认状态和点击状态的颜色
   Color _defaultColor = Color(0xff2c5977);
   Color _activeColor = Color(0xff2A75A7);
   int _currentIndex = 0;
 
-  //定义一个pagecontroller 用于控制指定页面的显示
   final PageController _controller = PageController(
     initialPage: 0,
   );
@@ -29,17 +27,16 @@ class _TabNavigatorState extends State<TabNavigator> {
         //pageview
         controller: _controller,
         children: <Widget>[
-          //添加需要显示的页面
+          //adding page
           HomeScreen(),
-          UserPage(),
+          // UserPage(),
           ReadyGuide(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          //添加底部导航栏
-          currentIndex: _currentIndex, //当下点击的条目
+          //adding nav bar
+          currentIndex: _currentIndex,
           onTap: (index) {
-            //点击事件  在点击到指定的图标  改变currentindex
             _controller.jumpToPage(index);
             setState(() {
               _currentIndex = index;
@@ -56,15 +53,15 @@ class _TabNavigatorState extends State<TabNavigator> {
                     color: _currentIndex != 0 ? _defaultColor : _activeColor),
               ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.camera_alt, color: _defaultColor),
-              activeIcon: Icon(Icons.camera_alt, color: _activeColor),
-              title: Text(
-                'Checklist',
-                style: TextStyle(
-                    color: _currentIndex != 1 ? _defaultColor : _activeColor),
-              ),
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.camera_alt, color: _defaultColor),
+            //   activeIcon: Icon(Icons.camera_alt, color: _activeColor),
+            //   title: Text(
+            //     'Checklist',
+            //     style: TextStyle(
+            //         color: _currentIndex != 1 ? _defaultColor : _activeColor),
+            //   ),
+            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.map_outlined, color: _defaultColor),
               activeIcon: Icon(Icons.map_outlined, color: _activeColor),
