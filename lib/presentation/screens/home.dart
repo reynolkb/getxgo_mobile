@@ -9,6 +9,33 @@ import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart'
 
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
+_launchURLea() async {
+  const url = 'https://getxgo.com/pages/how-to-be-prepared-for-earthquake';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURLfl() async {
+  const url = 'https://getxgo.com/pages/how-to-be-prepared-for-flood';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURLfr() async {
+  const url = 'https://getxgo.com/pages/how-to-be-prepared-for-fire';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 _launchURL() async {
   const url = 'https://getxgo.com';
   if (await canLaunch(url)) {
@@ -178,40 +205,50 @@ class _HomeState extends State<Home> {
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
                             Container(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('FIRE',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
+                              child: GestureDetector(
+                                onTap: _launchURLfr,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('FIRE',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
+                                ),
                               ),
                               width: 160.0,
                               color: Color(0xffDF7C39),
                             ),
                             Container(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('FLOOD',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
+                              padding: EdgeInsets.only(left: 10.0),
+                              child: GestureDetector(
+                                onTap: _launchURLfl,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('FLOOD',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
+                                ),
                               ),
                               width: 160.0,
                               color: Color(0xff345D98),
                             ),
                             Container(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('EARTHQUAKE',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
+                              child: GestureDetector(
+                                onTap: _launchURLea,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('EARTHQUAKE',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
+                                ),
                               ),
                               width: 160.0,
                               color: Color(0xffEED023),

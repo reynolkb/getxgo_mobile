@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:bloc_architecture_app/presentation/screens/user_page.dart';
 
 class ReadyGuide extends StatelessWidget {
   const ReadyGuide({Key? key}) : super(key: key);
 
+  _launchURLea() async {
+    const url = 'https://getxgo.com/pages/how-to-be-prepared-for-earthquake';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchURLfl() async {
+    const url = 'https://getxgo.com/pages/how-to-be-prepared-for-flood';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchURLfr() async {
+    const url = 'https://getxgo.com/pages/how-to-be-prepared-for-fire';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   _launchURL() async {
-    const url = 'https://getxgo.com';
+    const url = 'https://getxgo.com/collections/all-products';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -51,15 +77,13 @@ class ReadyGuide extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('\nGet Ready.',
+                    Text('\nGet Ready for the Unknown.\n',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                           color: Color(0xff2c5977),
                         )),
-                    SizedBox(
-                      height: 30,
-                    ),
                     Column(
                       crossAxisAlignment:
                           CrossAxisAlignment.stretch, // add this
@@ -70,16 +94,10 @@ class ReadyGuide extends StatelessWidget {
                             topRight: Radius.circular(5.0),
                           ),
                           child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => UserPage()),
-                              );
-                            },
+                            onTap: _launchURLfr,
                             child: Container(
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset("assets/images/fire.png",
                                     height: 150.0, fit: BoxFit.fill),
                               ),
@@ -98,20 +116,38 @@ class ReadyGuide extends StatelessWidget {
                             topRight: Radius.circular(5.0),
                           ),
                           child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => UserPage()),
-                              );
-                            },
+                            onTap: _launchURLea,
                             child: Container(
+                              padding: EdgeInsets.only(top: 10.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
                                     "assets/images/earthquake.png",
                                     height: 150.0,
                                     fit: BoxFit.fill),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment:
+                          CrossAxisAlignment.stretch, // add this
+                      children: <Widget>[
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(5.0),
+                            topRight: Radius.circular(5.0),
+                          ),
+                          child: GestureDetector(
+                            onTap: _launchURLfl,
+                            child: Container(
+                              padding: EdgeInsets.only(top: 10.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: Image.asset("assets/images/flood.png",
+                                    height: 150.0, fit: BoxFit.fill),
                               ),
                             ),
                           ),
@@ -168,47 +204,6 @@ class ReadyGuide extends StatelessWidget {
             },
           ),
         ),
-        // body: SingleChildScrollView(
-
-        //     child: Column(
-        //   children: [
-        //     Container(
-        //       width: double.infinity,
-        //       height: 200.0,
-        //       decoration: BoxDecoration(
-        //           color: Colors.orangeAccent,
-        //           border: Border.all(
-        //               style: BorderStyle.solid, color: Colors.white)),
-        //       child: Center(
-        //           child: RichText(
-        //         text: TextSpan(
-        //           text: 'Earthquake',
-        //           children: [
-        //             TextSpan(
-        //               text:
-        //                   '\n\n How to prepare for earthquake \n \n Ready More >>',
-        //             ),
-        //           ],
-        //           style: TextStyle(
-        //               fontWeight: FontWeight.bold,
-        //               fontSize: 20,
-        //               fontFamily: 'Montserrat'),
-        //         ),
-        //       )),
-        //     ),
-        //     Container(
-        //       width: double.infinity,
-        //       decoration: BoxDecoration(
-        //           color: Colors.blueAccent,
-        //           border: Border.all(
-        //               style: BorderStyle.solid, color: Colors.white)),
-        //       child: Center(
-        //         child: Text("EARTHQUAKE, How to prepare for earthquake."),
-        //       ),
-        //     ),
-        //   ],
-        // )
-        // ),
       ),
     );
   }
