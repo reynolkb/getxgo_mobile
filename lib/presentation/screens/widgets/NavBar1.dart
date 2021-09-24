@@ -24,9 +24,8 @@ class NavBar1 extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(
-              Icons.map_outlined,
-              size: 44.0,
+            icon: Image.asset(
+              'assets/images/icons/home-icon.png',
               color: Colors.white,
             ),
             onPressed: () {
