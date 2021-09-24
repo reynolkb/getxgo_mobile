@@ -7,7 +7,7 @@ class LoginAPI {
     var response = await user.login();
 
     if (response.success) {
-      return 'user_page';
+      return 'getxgo_home';
     } else {
       return response.error!.message;
     }
