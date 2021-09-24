@@ -8,26 +8,20 @@ class NavBar1 extends StatelessWidget {
     return Container(
       height: 75,
       padding: EdgeInsets.only(top: 5, bottom: 30),
-      color: Color(0xff2c5977),
+      color: Color(0xffF4F8FA),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            icon: Icon(
-              Icons.home,
-              size: 44.0,
-              color: Colors.white,
-            ),
+            icon: Icon(Icons.home, size: 30.0, color: Color(0xff2C5977)),
             onPressed: () {
               // print("Home Pressed");
               Navigator.pushReplacementNamed(context, 'login');
             },
           ),
           IconButton(
-            icon: Image.asset(
-              'assets/images/icons/home-icon.png',
-              color: Colors.white,
-            ),
+            icon:
+                Icon(Icons.map_outlined, size: 30.0, color: Color(0xff2C5977)),
             onPressed: () {
               Navigator.pushNamed(context, 'ready_guide');
             },

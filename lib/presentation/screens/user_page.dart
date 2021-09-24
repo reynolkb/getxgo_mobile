@@ -119,14 +119,14 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        child: Text('Hello, ${snapshot.data![0].username}',
+                        child: Text('\nHello, ${snapshot.data![0].username}',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff2c5977),
                             )),
                       ),
-                      Text('Complete your checklist',
+                      Text('\nComplete your checklist',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -135,7 +135,7 @@ class _UserPageState extends State<UserPage> {
                       SizedBox(
                         height: 16,
                       ),
-                      Text('Step 1: Create Copies of Important Documents',
+                      Text('Create Copies of Important Documents*',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
