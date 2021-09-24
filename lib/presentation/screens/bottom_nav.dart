@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'user_page.dart';
 import 'ready_guide.dart';
+import 'login_page.dart';
 
 //
 class TabNavigator extends StatefulWidget {
@@ -31,6 +32,7 @@ class _TabNavigatorState extends State<TabNavigator> {
           HomeScreen(),
           // UserPage(),
           ReadyGuide(),
+          LoginPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

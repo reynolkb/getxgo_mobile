@@ -187,7 +187,7 @@ class _HomeState extends State<Home> {
                               },
                               child: Container(
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20.0),
+                                  // borderRadius: BorderRadius.circular(0.0),
                                   child: Image.asset(
                                       "assets/images/checklist_home.png",
                                       height: 150.0,
@@ -221,7 +221,6 @@ class _HomeState extends State<Home> {
                               color: Color(0xffDF7C39),
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 10.0),
                               child: GestureDetector(
                                 onTap: _launchURLfl,
                                 child: Align(
@@ -267,7 +266,7 @@ class _HomeState extends State<Home> {
                               color: Color(0xff3A7359),
                             ),
                             Container(
-                              padding: const EdgeInsets.only(right: 10.0),
+                              // padding: const EdgeInsets.only(right: 10.0),
                               child: Align(
                                 alignment: Alignment.center,
                                 child: Text('TORNADO',
@@ -284,7 +283,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 20.0),
+                        margin: const EdgeInsets.symmetric(vertical: 10.0),
                         height: 200.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,

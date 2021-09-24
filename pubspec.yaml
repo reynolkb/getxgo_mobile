@@ -20,6 +20,8 @@ dependencies:
   gallery_saver: ^2.1.3
   grouped_buttons: ^1.0.4
   url_launcher: ^6.0.9
+  http: any
+  intl: any
 
 
 dev_dependencies:
