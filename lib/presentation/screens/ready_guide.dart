@@ -71,7 +71,7 @@ class _ReadyGuideState extends State<ReadyGuide> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        title: const Text('Ready Guide'),
         backgroundColor: ColorConstants.primaryColor,
         brightness: Brightness.dark,
       ),
