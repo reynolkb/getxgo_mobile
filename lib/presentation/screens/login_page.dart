@@ -1,6 +1,6 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/logic/cubit/login/login_cubit.dart';
-import 'package:bloc_architecture_app/presentation/screens/widgets/MyBottomNavBar.dart';
+import 'package:bloc_architecture_app/presentation/screens/widgets/NavBar1.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-      bottomNavigationBar: MyBottomNavBar(),
+      bottomNavigationBar: NavBar1(),
     );
   }
 
@@ -152,8 +152,8 @@ class _LoginPageState extends State<LoginPage> {
 
     var response = await BlocProvider.of<LoginCubit>(context)
         .loginUser(username, password);
-    if (response == 'user_page') {
-      Navigator.of(context).pushNamed(response);
+    if (response == 'getxgo_home') {
+      Navigator.of(context).pushReplacementNamed(response);
     } else {
       Message.showError(context: context, message: response);
     }

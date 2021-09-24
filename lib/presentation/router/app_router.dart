@@ -1,4 +1,4 @@
-import 'package:bloc_architecture_app/presentation/screens/checklist_page.dart';
+import 'package:bloc_architecture_app/presentation/screens/getxgo_home.dart';
 import 'package:bloc_architecture_app/presentation/screens/login_page.dart';
 import 'package:bloc_architecture_app/presentation/screens/ready_guide.dart';
 import 'package:bloc_architecture_app/presentation/screens/reset_password_page.dart';
@@ -23,6 +23,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ResetPasswordPage());
       case 'ready_guide':
         return MaterialPageRoute(builder: (_) => ReadyGuide());
+      case 'getxgo_home':
+        return MaterialPageRoute(builder: (_) => GetxgoHome());
       default:
         return null;
     }
