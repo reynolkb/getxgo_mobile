@@ -132,16 +132,16 @@ class _UserPageState extends State<UserPage> {
                             fontSize: 16,
                             color: Color(0xff2c5977),
                           )),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Text('Step 1: Create Copies of Important Documents',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xffDF7C39),
-                          )),
+                      // SizedBox(
+                      //   height: 16,
+                      // ),
+                      // Text('Step 1: Create Copies of Important Documents',
+                      //     textAlign: TextAlign.center,
+                      //     style: TextStyle(
+                      //       fontSize: 14,
+                      //       fontWeight: FontWeight.bold,
+                      //       color: Color(0xffDF7C39),
+                      //     )),
                       SizedBox(
                         height: 16,
                       ),
@@ -155,9 +155,9 @@ class _UserPageState extends State<UserPage> {
                         cash: checklist!['cash'],
                         jacket: checklist!['jacket'],
                       ),
-                      SizedBox(
-                        height: 16,
-                      ),
+                      // SizedBox(
+                      //   height: 16,
+                      // ),
                       Container(
                         height: 50,
                         child: TextButton(
