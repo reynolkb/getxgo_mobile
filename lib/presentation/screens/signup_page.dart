@@ -3,6 +3,9 @@ import 'package:bloc_architecture_app/logic/cubit/signup/signup_cubit.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+const _url = 'https://flutter.dev';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -13,6 +16,8 @@ class _SignUpPageState extends State<SignUpPage> {
   final controllerUsername = TextEditingController();
   final controllerPassword = TextEditingController();
   final controllerEmail = TextEditingController();
+
+  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +116,42 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 Container(
                   height: 50,
+                  child: CheckboxListTile(
+                    title: GestureDetector(
+                      onTap: () async {
+                        String url =
+                            "https://getxgo.com/pages/getxgo-app-privacy-policy";
+                        var urllaunchable = await canLaunch(
+                            url); //canLaunch is from url_launcher package
+                        if (urllaunchable) {
+                          await launch(
+                              url); //launch is from url_launcher package to launch URL
+                        } else {
+                          print("URL can't be launched.");
+                        }
+                      },
+                      child: Text('I have read the Privacy Policy',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff2c5977),
+                          )),
+                    ),
+                    checkColor: Colors.white,
+                    activeColor: Color(0xff2c5977),
+                    value: _isSelected,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _isSelected = value!;
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  height: 50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                   ),
@@ -134,19 +175,37 @@ class _SignUpPageState extends State<SignUpPage> {
     final email = controllerEmail.text.trim();
     final password = controllerPassword.text.trim();
 
-    var response = await BlocProvider.of<SignupCubit>(context)
-        .signupUser(username, password, email);
-
-    if (response ==
-        'User was successfully created! Please verify your email before Login') {
-      Message.showSuccess(
+    if (_isSelected == false) {
+      Message.showError(
           context: context,
-          message: response,
-          onPressed: () async {
-            Navigator.pop(context);
+          message: 'Please confirm you have read the privacy policy',
+          onPressed: () {
+            // Navigator.of(context).pushNamed('user_page');
+            setState(() {});
+          });
+    } else if (username == '' || email == '' || password == '') {
+      Message.showError(
+          context: context,
+          message: 'Please enter in values for username, email and password',
+          onPressed: () {
+            // Navigator.of(context).pushNamed('user_page');
+            setState(() {});
           });
     } else {
-      Message.showError(context: context, message: response);
+      var response = await BlocProvider.of<SignupCubit>(context)
+          .signupUser(username, password, email);
+
+      if (response ==
+          'User was successfully created! Please verify your email before Login') {
+        Message.showSuccess(
+            context: context,
+            message: response,
+            onPressed: () async {
+              Navigator.pop(context);
+            });
+      } else {
+        Message.showError(context: context, message: response);
+      }
     }
   }
 }
