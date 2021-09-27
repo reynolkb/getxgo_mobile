@@ -324,58 +324,6 @@ class _ChecklistState extends State<Checklist> {
                 )),
           ),
         ),
-        // // // Container(
-        // // //   child: CheckboxListTile(
-        // // //     title: Text('Other Personal Essentials',
-        // // //         style: TextStyle(
-        // // //           fontSize: 15,
-        // // //           fontWeight: FontWeight.bold,
-        // // //           color: Color(0xff2c5977),
-        // // //         )),
-        // // //     checkColor: Colors.white,
-        // // //     activeColor: Color(0xff2c5977),
-        // // //     value: widget.jacket,
-        // // //     onChanged: (bool? value) {
-        // // //       setState(() {
-        // // //         widget.jacket = value!;
-        // // //       });
-        // // //     },
-        // // //     secondary: Container(
-        // // //         height: 50,
-        // // //         width: 50,
-        // // //         child: Icon(
-        // // //           Icons.cases_sharp,
-        // // //           size: 40.0,
-        // // //           color: Color(0xff2c5977),
-        // // //         )),
-        // // //   ),
-        // // // ),
-        // // // Container(
-        // // //   child: CheckboxListTile(
-        // // //     title: Text('Backup Medications',
-        // // //         style: TextStyle(
-        // // //           fontSize: 15,
-        // // //           fontWeight: FontWeight.bold,
-        // // //           color: Color(0xff2c5977),
-        // // //         )),
-        // // //     checkColor: Colors.white,
-        // // //     activeColor: Color(0xff2c5977),
-        // // //     value: widget.jacket,
-        // // //     onChanged: (bool? value) {
-        // // //       setState(() {
-        // // //         widget.jacket = value!;
-        // // //       });
-        // // //     },
-        // //     secondary: Container(
-        // //         height: 50,
-        // //         width: 50,
-        // //         child: Icon(
-        // //           Icons.cases_sharp,
-        // //           size: 40.0,
-        // //           color: Color(0xff2c5977),
-        // //         )),
-        //   ),
-        // ),
         Container(
           height: 50,
           child: ElevatedButton(
