@@ -41,6 +41,24 @@ class _GetxgoHomeState extends State<GetxgoHome> {
     }
   }
 
+  _launchURLhr() async {
+    const url = 'https://getxgo.com/pages/how-to-prepare-for-an-hurricane';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchURLto() async {
+    const url = 'https://getxgo.com/pages/how-to-prepare-for-an-tornado';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   _launchURL() async {
     const url = 'https://getxgo.com';
     if (await canLaunch(url)) {
@@ -238,7 +256,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                             ),
                             Container(
                               child: GestureDetector(
-                                onTap: _launchURL,
+                                onTap: _launchURLhr,
                                 child: Image.asset(
                                   'assets/images/hurr-icon.png', // On click should redirect to an URL
                                   fit: BoxFit.fill,
@@ -249,7 +267,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                             ),
                             Container(
                               child: GestureDetector(
-                                onTap: _launchURL,
+                                onTap: _launchURLto,
                                 child: Image.asset(
                                   'assets/images/tornado-icon.png', // On click should redirect to an URL
                                   fit: BoxFit.fill,
