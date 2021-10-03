@@ -97,97 +97,86 @@ class _UserPageState extends State<UserPage> {
         backgroundColor: ColorConstants.primaryColor,
         brightness: Brightness.dark,
       ),
-      body: SingleChildScrollView(
-        child: FutureBuilder(
-          future: Future.wait([getUser()]),
-          builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.none:
-              case ConnectionState.waiting:
-                return Center(
-                  child: Container(
-                      width: 100,
-                      height: 100,
-                      child: CircularProgressIndicator()),
-                );
-              default:
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: Text('Hello, ${snapshot.data![0].username}',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff2c5977),
-                            )),
-                      ),
-                      Text('Complete your checklist',
-                          textAlign: TextAlign.center,
+      body: FutureBuilder(
+        future: Future.wait([getUser()]),
+        builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(
+                child: Container(
+                    width: 100,
+                    height: 100,
+                    child: CircularProgressIndicator()),
+              );
+            default:
+              return new SingleChildScrollView(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      child: Text('Hello, ${snapshot.data![0].username}',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
                             color: Color(0xff2c5977),
                           )),
-                      // SizedBox(
-                      //   height: 16,
-                      // ),
-                      // Text('Step 1: Create Copies of Important Documents',
-                      //     textAlign: TextAlign.center,
-                      //     style: TextStyle(
-                      //       fontSize: 14,
-                      //       fontWeight: FontWeight.bold,
-                      //       color: Color(0xffDF7C39),
-                      //     )),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Checklist(
-                        objectId: checklist!['objectId'],
-                        passport: checklist!['passport'],
-                        homeInsurance: checklist!['homeInsurance'],
-                        autoInsurance: checklist!['autoInsurance'],
-                        medicalCard: checklist!['medicalCard'],
-                        socialSecurityCard: checklist!['socialSecurityCard'],
-                        cash: checklist!['cash'],
-                        jacket: checklist!['jacket'],
-                      ),
-                      // SizedBox(
-                      //   height: 16,
-                      // ),
-                      Container(
-                        height: 50,
-                        child: TextButton(
-                          child: const Text(
-                            'Shop GetxGo Store',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff2c5977),
-                            ),
+                    ),
+                    Text('Step 1: Complete your checklist',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xff2c5977),
+                        )),
+                    Text('Step 2: Create Copies of Important Documents',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xffDF7C39),
+                        )),
+                    Checklist(
+                      objectId: checklist!['objectId'],
+                      passport: checklist!['passport'],
+                      homeInsurance: checklist!['homeInsurance'],
+                      autoInsurance: checklist!['autoInsurance'],
+                      medicalCard: checklist!['medicalCard'],
+                      socialSecurityCard: checklist!['socialSecurityCard'],
+                      cash: checklist!['cash'],
+                      jacket: checklist!['jacket'],
+                    ),
+                    Container(
+                      height: 50,
+                      child: TextButton(
+                        child: const Text(
+                          'Shop GetxGo Store',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff2c5977),
                           ),
-                          onPressed: () async {
-                            String url = "https://www.getxgo.com";
-                            var urllaunchable = await canLaunch(
-                                url); //canLaunch is from url_launcher package
-                            if (urllaunchable) {
-                              await launch(
-                                  url); //launch is from url_launcher package to launch URL
-                            } else {
-                              print("URL can't be launched.");
-                            }
-                          },
                         ),
+                        onPressed: () async {
+                          String url = "https://www.getxgo.com";
+                          var urllaunchable = await canLaunch(
+                              url); //canLaunch is from url_launcher package
+                          if (urllaunchable) {
+                            await launch(
+                                url); //launch is from url_launcher package to launch URL
+                          } else {
+                            print("URL can't be launched.");
+                          }
+                        },
                       ),
-                    ],
-                  ),
-                );
-            }
-          },
-        ),
+                    ),
+                  ],
+                ),
+              );
+          }
+        },
       ),
     );
   }
