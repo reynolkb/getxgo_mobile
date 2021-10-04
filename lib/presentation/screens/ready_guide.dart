@@ -82,7 +82,7 @@ class _ReadyGuideState extends State<ReadyGuide> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text('\nGet Ready for the Unknown.\n',
                       textAlign: TextAlign.center,
@@ -158,7 +158,7 @@ class _ReadyGuideState extends State<ReadyGuide> {
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 20.0),
-                    height: 200.0,
+                    height: 150.0,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[

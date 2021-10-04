@@ -98,7 +98,7 @@ class _ChecklistState extends State<Checklist> {
     return new SingleChildScrollView(
         child: new Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Container(
           padding: EdgeInsets.only(
