@@ -40,6 +40,24 @@ class _ReadyGuideState extends State<ReadyGuide> {
     }
   }
 
+  _launchURLhr() async {
+    const url = 'https://getxgo.com/pages/how-to-prepare-for-an-hurricane';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchURLto() async {
+    const url = 'https://getxgo.com/pages/how-to-prepare-for-an-tornado';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   _launchURL() async {
     const url = 'https://getxgo.com/collections/all-products';
     if (await canLaunch(url)) {
@@ -149,6 +167,50 @@ class _ReadyGuideState extends State<ReadyGuide> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(0.0),
                               child: Image.asset("assets/images/flood.png",
+                                  height: 150.0, fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(5.0),
+                          topRight: Radius.circular(5.0),
+                        ),
+                        child: GestureDetector(
+                          onTap: _launchURLhr,
+                          child: Container(
+                            padding: EdgeInsets.only(top: 10.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(0.0),
+                              child: Image.asset("assets/images/hurricane.png",
+                                  height: 150.0, fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(5.0),
+                          topRight: Radius.circular(5.0),
+                        ),
+                        child: GestureDetector(
+                          onTap: _launchURLto,
+                          child: Container(
+                            padding: EdgeInsets.only(top: 10.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(0.0),
+                              child: Image.asset("assets/images/tornado.png",
                                   height: 150.0, fit: BoxFit.fill),
                             ),
                           ),
