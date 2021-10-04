@@ -34,8 +34,11 @@ class NavBar2 extends StatelessWidget {
             },
           ),
           IconButton(
-            icon:
-                Icon(Icons.map_outlined, size: 30.0, color: Color(0xff2C5977)),
+            icon: Icon(
+              Icons.map_outlined,
+              size: 30.0,
+              color: Color(0xff2C5977),
+            ),
             onPressed: () {
               Navigator.pushNamed(context, 'ready_guide');
             },

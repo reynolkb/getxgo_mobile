@@ -11,10 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^7.0.0
+  bloc: ^7.2.0
   cupertino_icons: ^1.0.0
-  flutter_bloc: ^7.0.0
-  hydrated_bloc: ^7.0.0
+  flutter_bloc: ^7.3.0
+  hydrated_bloc: ^7.1.0
   parse_server_sdk_flutter: ^3.1.0
   image_picker: ^0.8.3+3
   gallery_saver: ^2.1.3

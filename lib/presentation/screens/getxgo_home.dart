@@ -165,7 +165,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
                         alignment: Alignment.center,
@@ -217,7 +217,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 20.0),
-                        height: 200.0,
+                        height: 150.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
@@ -281,7 +281,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 10.0),
-                        height: 200.0,
+                        height: 150.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[

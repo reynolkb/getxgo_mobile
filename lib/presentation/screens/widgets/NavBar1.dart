@@ -13,15 +13,22 @@ class NavBar1 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            icon: Icon(Icons.home, size: 30.0, color: Color(0xff2C5977)),
+            icon: Icon(
+              Icons.home,
+              size: 30.0,
+              color: Color(0xff2C5977),
+            ),
             onPressed: () {
               // print("Home Pressed");
               Navigator.pushReplacementNamed(context, 'login');
             },
           ),
           IconButton(
-            icon:
-                Icon(Icons.map_outlined, size: 30.0, color: Color(0xff2C5977)),
+            icon: Icon(
+              Icons.map_outlined,
+              size: 30.0,
+              color: Color(0xff2C5977),
+            ),
             onPressed: () {
               Navigator.pushNamed(context, 'ready_guide');
             },
