@@ -176,7 +176,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                               color: Color(0xff2c5977),
                             )),
                       ),
-                      Text('\nWelcome to the GetxGo preparedenss app.',
+                      Text('\nWelcome to the GetxGo preparedness app.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
