@@ -161,6 +161,8 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                       child: CircularProgressIndicator()),
                 );
               default:
+                var right;
+                var ui;
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -186,30 +188,50 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                         height: 30,
                       ),
                       Column(
-                        crossAxisAlignment:
-                            CrossAxisAlignment.stretch, // add this
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceEvenly, // add this
                         children: <Widget>[
-                          ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(5.0),
-                              topRight: Radius.circular(5.0),
-                            ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => UserPage()),
-                                );
-                              },
-                              child: Container(
-                                child: ClipRRect(
-                                  // borderRadius: BorderRadius.circular(0.0),
-                                  child: Image.asset(
-                                      "assets/images/checklist_home.png",
-                                      height: 150.0,
-                                      fit: BoxFit.fill),
-                                ),
+                          Container(
+                            height: 200.0,
+                            color: Color(0xff2c5977),
+                            child: ListTile(
+                              
+                                onTap: _launchURLfr,
+                              dense: true,
+                              title: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                            text: "\nReadiness Checklist",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'Montserrat')),
+                                        TextSpan(
+                                            text:
+                                                "\n\n\nMake copies of your important documents (personal ID cards, Insurance and medical). \n\n",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontFamily: 'Montserrat')),
+                                        WidgetSpan(
+                                          child: Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: Icon(
+                                                Icons.read_more_sharp,
+                                                size: 50,
+                                                color: Colors.white,
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                           ),
@@ -217,64 +239,84 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 20.0),
-                        height: 150.0,
+                        height: 200.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
                             Container(
                               child: GestureDetector(
                                 onTap: _launchURLfr,
-                                child: Image.asset(
-                                  'assets/images/fire-icon.png', // On click should redirect to an URL
-                                  fit: BoxFit.fill,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('FIRE',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
                                 ),
                               ),
-                              padding: const EdgeInsets.only(right: 10.0),
-                              // width: 180.0,
+                              width: 160.0,
+                              color: Color(0xffDF7C39),
                             ),
                             Container(
                               child: GestureDetector(
                                 onTap: _launchURLfl,
-                                child: Image.asset(
-                                  'assets/images/flood-icon.png', // On click should redirect to an URL
-                                  fit: BoxFit.fill,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('FLOOD',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
                                 ),
                               ),
-                              padding: const EdgeInsets.only(right: 10.0),
-                              // width: 180.0,
+                              width: 160.0,
+                              color: Color(0xff345D98),
                             ),
                             Container(
                               child: GestureDetector(
                                 onTap: _launchURLea,
-                                child: Image.asset(
-                                  'assets/images/earth-icon.png', // On click should redirect to an URL
-                                  fit: BoxFit.fill,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text('EARTHQUAKE',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
                                 ),
                               ),
-                              padding: const EdgeInsets.only(right: 10.0),
-                              // width: 180.0,
+                              width: 160.0,
+                              color: Color(0xffEED023),
                             ),
                             Container(
-                              child: GestureDetector(
-                                onTap: _launchURLhr,
-                                child: Image.asset(
-                                  'assets/images/hurr-icon.png', // On click should redirect to an URL
-                                  fit: BoxFit.fill,
-                                ),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('HURRICANE',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
                               ),
-                              padding: const EdgeInsets.only(right: 10.0),
-                              // width: 180.0,
+                              width: 160.0,
+                              color: Color(0xff3A7359),
                             ),
                             Container(
-                              child: GestureDetector(
-                                onTap: _launchURLto,
-                                child: Image.asset(
-                                  'assets/images/tornado-icon.png', // On click should redirect to an URL
-                                  fit: BoxFit.fill,
-                                ),
+                              // padding: const EdgeInsets.only(right: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('TORNADO',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
                               ),
-                              padding: const EdgeInsets.only(right: 10.0),
-                              // width: 180.0,
+                              width: 160.0,
+                              color: Color(0xff99B1C9),
                             ),
                           ],
                         ),

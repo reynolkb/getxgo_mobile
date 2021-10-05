@@ -110,6 +110,53 @@ class _ReadyGuideState extends State<ReadyGuide> {
                         color: Color(0xff2c5977),
                       )),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment:
+                        MainAxisAlignment.spaceEvenly, // add this
+                    children: <Widget>[
+                      Container(
+                        height: 200.0,
+                        color: Color(0xff2c5977),
+                        child: ListTile(
+                          dense: true,
+                          title: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "\nReadiness Checklist",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text:
+                                            "\n\n\nMake copies of your important documents (personal ID cards, Insurance and medical). \n\n",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'Montserrat')),
+                                    WidgetSpan(
+                                      child: Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Icon(
+                                            Icons.read_more_sharp,
+                                            size: 50,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch, // add this
                     children: <Widget>[
                       ClipRRect(
