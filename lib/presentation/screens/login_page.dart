@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.only(top: 80.0),
-                child: const Text('Welcome to the GetxGo preparendess app',
+                child: const Text('Welcome to the GetxGo preparedness app',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
