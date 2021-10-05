@@ -41,6 +41,24 @@ class _GetxgoHomeState extends State<GetxgoHome> {
     }
   }
 
+  _launchURLhr() async {
+    const url = 'https://getxgo.com/pages/how-to-prepare-for-an-hurricane';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchURLto() async {
+    const url = 'https://getxgo.com/pages/how-to-prepare-for-an-tornado';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   _launchURL() async {
     const url = 'https://getxgo.com';
     if (await canLaunch(url)) {
@@ -158,7 +176,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                               color: Color(0xff2c5977),
                             )),
                       ),
-                      Text('\nWelcome to the GetxGo preparedenss app.',
+                      Text('\nWelcome to the GetxGo preparedness app.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -206,77 +224,57 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                             Container(
                               child: GestureDetector(
                                 onTap: _launchURLfr,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text('FIRE',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      )),
+                                child: Image.asset(
+                                  'assets/images/fire-icon.png', // On click should redirect to an URL
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                              width: 160.0,
-                              color: Color(0xffDF7C39),
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                             Container(
                               child: GestureDetector(
                                 onTap: _launchURLfl,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text('FLOOD',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      )),
+                                child: Image.asset(
+                                  'assets/images/flood-icon.png', // On click should redirect to an URL
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                              width: 160.0,
-                              color: Color(0xff345D98),
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                             Container(
                               child: GestureDetector(
                                 onTap: _launchURLea,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text('EARTHQUAKE',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      )),
+                                child: Image.asset(
+                                  'assets/images/earth-icon.png', // On click should redirect to an URL
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                              width: 160.0,
-                              color: Color(0xffEED023),
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                             Container(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('HURRICANE',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
+                              child: GestureDetector(
+                                onTap: _launchURLhr,
+                                child: Image.asset(
+                                  'assets/images/hurr-icon.png', // On click should redirect to an URL
+                                  fit: BoxFit.fill,
+                                ),
                               ),
-                              width: 160.0,
-                              color: Color(0xff3A7359),
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                             Container(
-                              // padding: const EdgeInsets.only(right: 10.0),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('TORNADO',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
+                              child: GestureDetector(
+                                onTap: _launchURLto,
+                                child: Image.asset(
+                                  'assets/images/tornado-icon.png', // On click should redirect to an URL
+                                  fit: BoxFit.fill,
+                                ),
                               ),
-                              width: 160.0,
-                              color: Color(0xff99B1C9),
+                              padding: const EdgeInsets.only(right: 10.0),
+                              // width: 180.0,
                             ),
                           ],
                         ),
