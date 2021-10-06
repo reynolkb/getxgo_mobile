@@ -125,19 +125,58 @@ class _UserPageState extends State<UserPage> {
                             color: Color(0xff2c5977),
                           )),
                     ),
-                    Text('Step 1: Complete your checklist',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xff2c5977),
-                        )),
-                    Text('Step 2: Create Copies of Important Documents',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xffDF7C39),
-                        )),
+                    SizedBox(height: 10),
+                    Container(),
+                    Container(
+                      padding: EdgeInsets.only(
+                        top: 5.0,
+                      ),
+                      decoration: BoxDecoration(
+                        // color: Colors.white,
+                        color: Color((0xffF4F4F5)),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+
+                      // height: 200.0,
+                      child: ListTile(
+                        dense: true,
+                        title: Column(children: <Widget>[
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                    text: "Step 1: Complete your checklist.",
+                                    style: TextStyle(
+                                        color: Color(0xff2c5977),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat')),
+                                TextSpan(
+                                    text:
+                                        "\nStep 2: Make copies of important documents.",
+                                    style: TextStyle(
+                                        color: Color(0xff2c5977),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat')),
+                              ],
+                            ),
+                          )
+                        ]),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(),
                     Checklist(
                       objectId: checklist!['objectId'],
                       passport: checklist!['passport'],
@@ -148,30 +187,30 @@ class _UserPageState extends State<UserPage> {
                       cash: checklist!['cash'],
                       jacket: checklist!['jacket'],
                     ),
-                    Container(
-                      height: 50,
-                      child: TextButton(
-                        child: const Text(
-                          'Shop GetxGo Store',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff2c5977),
-                          ),
-                        ),
-                        onPressed: () async {
-                          String url = "https://www.getxgo.com";
-                          var urllaunchable = await canLaunch(
-                              url); //canLaunch is from url_launcher package
-                          if (urllaunchable) {
-                            await launch(
-                                url); //launch is from url_launcher package to launch URL
-                          } else {
-                            print("URL can't be launched.");
-                          }
-                        },
-                      ),
-                    ),
+                    // Container(
+                    //   height: 50,
+                    //   child: TextButton(
+                    //     child: const Text(
+                    //       'Shop GetxGo Store',
+                    //       style: TextStyle(
+                    //         fontSize: 14,
+                    //         fontWeight: FontWeight.bold,
+                    //         color: Color(0xff2c5977),
+                    //       ),
+                    //     ),
+                    //     onPressed: () async {
+                    //       String url = "https://www.getxgo.com";
+                    //       var urllaunchable = await canLaunch(
+                    //           url); //canLaunch is from url_launcher package
+                    //       if (urllaunchable) {
+                    //         await launch(
+                    //             url); //launch is from url_launcher package to launch URL
+                    //       } else {
+                    //         print("URL can't be launched.");
+                    //       }
+                    //     },
+                    //   ),
+                    // ),
                   ],
                 ),
               );

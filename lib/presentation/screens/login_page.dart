@@ -54,13 +54,13 @@ class _LoginPageState extends State<LoginPage> {
                 keyboardType: TextInputType.text,
                 textCapitalization: TextCapitalization.none,
                 autocorrect: false,
-                decoration: InputDecoration(
+               decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     focusedBorder: new OutlineInputBorder(
                         borderRadius: new BorderRadius.circular(25.0),
                         borderSide: BorderSide(
-                          color: Color(0xff2c5977),
+                          color : Color(0xff2c5977),
                         )),
                     labelStyle: new TextStyle(color: Color(0xff2c5977)),
                     labelText: 'Username'),
