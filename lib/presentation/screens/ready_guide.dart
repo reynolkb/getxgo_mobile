@@ -1,6 +1,7 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
 import 'package:bloc_architecture_app/logic/cubit/signup/signup_cubit.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -68,7 +69,8 @@ class _ReadyGuideState extends State<ReadyGuide> {
   }
 
   _launchURL1() async {
-    const url = 'https://getxgo.com/products/emergency-go-kit';
+    const url =
+        'https://getxgo.com/products/emergency-go-kit?variant=39397935775817';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -77,7 +79,7 @@ class _ReadyGuideState extends State<ReadyGuide> {
   }
 
   _launchURL2() async {
-    const url = 'https://getxgo.com/products/getxgokit';
+    const url = 'https://getxgo.com/products/getxgokit?variant=39351217815625';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -110,201 +112,387 @@ class _ReadyGuideState extends State<ReadyGuide> {
                         color: Color(0xff2c5977),
                       )),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceEvenly, // add this
                     children: <Widget>[
                       Container(
-                        height: 200.0,
-                        color: Color(0xff2c5977),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffDF7C39)),
+                        padding: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        height: 180.0,
                         child: ListTile(
                           dense: true,
-                          title: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                        text: "\nReadiness Checklist",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Montserrat')),
-                                    TextSpan(
-                                        text:
-                                            "\n\n\nMake copies of your important documents (personal ID cards, Insurance and medical). \n\n",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontFamily: 'Montserrat')),
-                                    WidgetSpan(
-                                      child: Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: Icon(
-                                            Icons.read_more_sharp,
-                                            size: 50,
-                                            color: Colors.white,
-                                          )),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                          title: Column(children: <Widget>[
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: "FIRE",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat')),
+                                  TextSpan(
+                                      text:
+                                          "\n\n\nHow to prepare for a fire. \n\n",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Montserrat')),
+                                  WidgetSpan(
+                                      child: GestureDetector(
+                                    onTap: _launchURLfr,
+                                    child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 30,
+                                          color: Colors.white,
+                                        )),
+                                  )),
+                                ],
+                              ),
+                            )
+                          ]),
                         ),
                       ),
+                      SizedBox(height: 10),
+                      Container(),
+                      SizedBox(height: 10),
+                      Container(),
                     ],
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
                     children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5.0),
-                          topRight: Radius.circular(5.0),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xff345D98),
                         ),
-                        child: GestureDetector(
-                          onTap: _launchURLfr,
-                          child: Container(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.asset("assets/images/fire.png",
-                                  height: 150.0, fit: BoxFit.fill),
-                            ),
-                          ),
+                        padding: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        height: 180.0,
+                        child: ListTile(
+                          dense: true,
+                          title: Column(children: <Widget>[
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: "FLOOD",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat')),
+                                  TextSpan(
+                                      text:
+                                          "\n\n\nHow to prepare for a flood. \n\n",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Montserrat')),
+                                  WidgetSpan(
+                                      child: GestureDetector(
+                                    onTap: _launchURLfl,
+                                    child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 30,
+                                          color: Colors.white,
+                                        )),
+                                  )),
+                                ],
+                              ),
+                            )
+                          ]),
                         ),
                       ),
+                      SizedBox(height: 10),
+                      Container(),
+                      SizedBox(height: 10),
+                      Container(),
                     ],
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
                     children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5.0),
-                          topRight: Radius.circular(5.0),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xffEED023),
                         ),
-                        child: GestureDetector(
-                          onTap: _launchURLea,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.asset("assets/images/earthquake.png",
-                                  height: 150.0, fit: BoxFit.fill),
-                            ),
-                          ),
+                        padding: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        height: 180.0,
+                        child: ListTile(
+                          dense: true,
+                          title: Column(children: <Widget>[
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: "EARTHQUAKE",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat')),
+                                  TextSpan(
+                                      text:
+                                          "\n\n\nHow to prepare for an earthquake. \n\n",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Montserrat')),
+                                  WidgetSpan(
+                                      child: GestureDetector(
+                                    onTap: _launchURLea,
+                                    child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 30,
+                                          color: Colors.white,
+                                        )),
+                                  )),
+                                ],
+                              ),
+                            )
+                          ]),
                         ),
                       ),
+                      SizedBox(height: 10),
+                      Container(),
+                      SizedBox(height: 10),
+                      Container(),
                     ],
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
                     children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5.0),
-                          topRight: Radius.circular(5.0),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xff3A7359),
                         ),
-                        child: GestureDetector(
-                          onTap: _launchURLfl,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.asset("assets/images/flood.png",
-                                  height: 150.0, fit: BoxFit.fill),
-                            ),
-                          ),
+                        padding: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        height: 180.0,
+                        child: ListTile(
+                          dense: true,
+                          title: Column(children: <Widget>[
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: "HURRICANE",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat')),
+                                  TextSpan(
+                                      text:
+                                          "\n\n\nHow to prepare for a Hurricane. \n\n",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Montserrat')),
+                                  WidgetSpan(
+                                      child: GestureDetector(
+                                    onTap: _launchURLhr,
+                                    child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 30,
+                                          color: Colors.white,
+                                        )),
+                                  )),
+                                ],
+                              ),
+                            )
+                          ]),
                         ),
                       ),
+                      SizedBox(height: 10),
+                      Container(),
+                      SizedBox(height: 10),
+                      Container(),
                     ],
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
                     children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5.0),
-                          topRight: Radius.circular(5.0),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xff99B1C9),
                         ),
-                        child: GestureDetector(
-                          onTap: _launchURLhr,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.asset("assets/images/hurricane.png",
-                                  height: 150.0, fit: BoxFit.fill),
-                            ),
-                          ),
+                        padding: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        height: 180.0,
+                        child: ListTile(
+                          dense: true,
+                          title: Column(children: <Widget>[
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: "TORNADO",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat')),
+                                  TextSpan(
+                                      text:
+                                          "\n\n\nHow to prepare for a tornado. \n\n",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Montserrat')),
+                                  WidgetSpan(
+                                      child: GestureDetector(
+                                    onTap: _launchURLto,
+                                    child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 30,
+                                          color: Colors.white,
+                                        )),
+                                  )),
+                                ],
+                              ),
+                            )
+                          ]),
                         ),
                       ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch, // add this
-                    children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5.0),
-                          topRight: Radius.circular(5.0),
-                        ),
-                        child: GestureDetector(
-                          onTap: _launchURLto,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.asset("assets/images/tornado.png",
-                                  height: 150.0, fit: BoxFit.fill),
-                            ),
-                          ),
-                        ),
-                      ),
+                      SizedBox(height: 10),
+                      Container(),
+                      SizedBox(height: 10),
+                      Container(),
                     ],
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(vertical: 20.0),
-                    height: 150.0,
+                    height: 200.0,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         Container(
-                          child: GestureDetector(
-                            onTap: _launchURL,
-                            child: Image.asset(
-                              'assets/images/getxgo_shop.png', // On click should redirect to an URL
-                              fit: BoxFit.fill,
-                            ),
+                          padding: EdgeInsets.only(top: 50),
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    WidgetSpan(
+                                        child: GestureDetector(
+                                      onTap: _launchURL,
+                                      child: Align(
+                                          alignment: Alignment.center,
+                                          child: Icon(
+                                            Icons.shopping_bag_outlined,
+                                            size: 50,
+                                            color: Color(0xff2c5977),
+                                          )),
+                                    )),
+                                    TextSpan(
+                                        text: "GetxGo",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xff2c5977),
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text: "Shop",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xff2c5977),
+                                            fontFamily: 'Montserrat')),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              )
+                            ]),
                           ),
-                          padding: const EdgeInsets.only(right: 10.0),
-                          // width: 180.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffC6DCE4),
+                          ),
+                          width: 100.0,
                         ),
+                        SizedBox(width: 10),
+                        Container(),
                         Container(
-                          child: GestureDetector(
-                            onTap: _launchURL1,
-                            child: Image.asset(
-                              'assets/images/waterproofkit.png', // On click should redirect to an URL
-                              // width: 80.0,
-                              fit: BoxFit.fill,
-                            ),
+                          padding: EdgeInsets.only(top: 30),
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    WidgetSpan(
+                                      child: GestureDetector(
+                                        onTap: _launchURL1,
+                                        child: Image.asset(
+                                          'assets/images/waterproofkit.png', // On click should redirect to an URL
+
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                    TextSpan(
+                                        text: "Waterproof",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xff2c5977),
+                                            fontFamily: 'Montserrat')),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              )
+                            ]),
                           ),
-                          padding: const EdgeInsets.only(right: 10.0),
-                          // width: 180.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffC6DCE4),
+                          ),
+                          width: 150.0,
                         ),
+                        SizedBox(width: 10),
+                        Container(),
                         Container(
-                          child: GestureDetector(
-                            onTap: _launchURL2,
-                            child: Image.asset(
-                              'assets/images/fire_getxgokit.png', // On click should redirect to an URL
-                              // width: 80.0,
-                              fit: BoxFit.fill,
-                            ),
+                          padding: EdgeInsets.only(top: 30),
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    WidgetSpan(
+                                      child: GestureDetector(
+                                        onTap: _launchURL1,
+                                        child: Image.asset(
+                                          'assets/images/fire_getxgokit.png', // On click should redirect to an URL
+
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                    TextSpan(
+                                        text: "Water/Fire-resistant",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xff2c5977),
+                                            fontFamily: 'Montserrat')),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              )
+                            ]),
                           ),
-                          padding: const EdgeInsets.only(right: 10.0),
-                          // width: 180.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffC6DCE4),
+                          ),
+                          width: 150.0,
                         ),
                       ],
                     ),
