@@ -113,48 +113,104 @@ class _ReadyGuideState extends State<ReadyGuide> {
                       )),
                   Column(
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
+                      InkWell(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Color(0xffDF7C39)),
+                          padding: EdgeInsets.only(
+                            top: 20.0,
+                          ),
+                          height: 180.0,
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "FIRE",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text:
+                                            "\n\n\nHow to prepare for a Fire. \n\n",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'Montserrat')),
+                                    WidgetSpan(
+                                      child: Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/images/arrow_icon.png',
+                                            width: 50,
+                                            height: 50,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
+                          ),
+                        ),
+                        onTap: _launchURLfr,
+                      ),
+                      SizedBox(height: 10),
+                      Container(),
+                      SizedBox(height: 10),
+                      Container(),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      InkWell(
+                        child: Container(
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xffDF7C39)),
-                        padding: EdgeInsets.only(
-                          top: 20.0,
+                            color: Color(0xff345D98),
+                          ),
+                          padding: EdgeInsets.only(
+                            top: 20.0,
+                          ),
+                          height: 180.0,
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "FLOOD",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text:
+                                            "\n\n\nHow to prepare for a Flood. \n\n",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'Montserrat')),
+                                    WidgetSpan(
+                                      child: Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/images/arrow_icon.png',
+                                            width: 50,
+                                            height: 50,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
+                          ),
                         ),
-                        height: 180.0,
-                        child: ListTile(
-                          dense: true,
-                          title: Column(children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: "FIRE",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat')),
-                                  TextSpan(
-                                      text:
-                                          "\n\n\nHow to prepare for a fire. \n\n",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: 'Montserrat')),
-                                  WidgetSpan(
-                                      child: GestureDetector(
-                                    onTap: _launchURLfr,
-                                    child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
-                                          color: Colors.white,
-                                        )),
-                                  )),
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
+                        onTap: _launchURLfl,
                       ),
                       SizedBox(height: 10),
                       Container(),
@@ -164,49 +220,51 @@ class _ReadyGuideState extends State<ReadyGuide> {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xff345D98),
+                      InkWell(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffEED023),
+                          ),
+                          padding: EdgeInsets.only(
+                            top: 20.0,
+                          ),
+                          height: 180.0,
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "EARTHQUAKE",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text:
+                                            "\n\n\nHow to prepare for an Earthquake. \n\n",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'Montserrat')),
+                                    WidgetSpan(
+                                      child: Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/images/arrow_icon.png',
+                                            width: 50,
+                                            height: 50,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
+                          ),
                         ),
-                        padding: EdgeInsets.only(
-                          top: 20.0,
-                        ),
-                        height: 180.0,
-                        child: ListTile(
-                          dense: true,
-                          title: Column(children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: "FLOOD",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat')),
-                                  TextSpan(
-                                      text:
-                                          "\n\n\nHow to prepare for a flood. \n\n",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: 'Montserrat')),
-                                  WidgetSpan(
-                                      child: GestureDetector(
-                                    onTap: _launchURLfl,
-                                    child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
-                                          color: Colors.white,
-                                        )),
-                                  )),
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
+                        onTap: _launchURLea,
                       ),
                       SizedBox(height: 10),
                       Container(),
@@ -216,49 +274,51 @@ class _ReadyGuideState extends State<ReadyGuide> {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xffEED023),
+                      InkWell(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xff3A7359),
+                          ),
+                          padding: EdgeInsets.only(
+                            top: 20.0,
+                          ),
+                          height: 180.0,
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "HURRICANE",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text:
+                                            "\n\n\nHow to prepare for a Hurricane. \n\n",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'Montserrat')),
+                                    WidgetSpan(
+                                      child: Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/images/arrow_icon.png',
+                                            width: 50,
+                                            height: 50,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
+                          ),
                         ),
-                        padding: EdgeInsets.only(
-                          top: 20.0,
-                        ),
-                        height: 180.0,
-                        child: ListTile(
-                          dense: true,
-                          title: Column(children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: "EARTHQUAKE",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat')),
-                                  TextSpan(
-                                      text:
-                                          "\n\n\nHow to prepare for an earthquake. \n\n",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: 'Montserrat')),
-                                  WidgetSpan(
-                                      child: GestureDetector(
-                                    onTap: _launchURLea,
-                                    child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
-                                          color: Colors.white,
-                                        )),
-                                  )),
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
+                        onTap: _launchURLhr,
                       ),
                       SizedBox(height: 10),
                       Container(),
@@ -268,101 +328,51 @@ class _ReadyGuideState extends State<ReadyGuide> {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xff3A7359),
+                      InkWell(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xff99B1C9),
+                          ),
+                          padding: EdgeInsets.only(
+                            top: 20.0,
+                          ),
+                          height: 180.0,
+                          child: ListTile(
+                            dense: true,
+                            title: Column(children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "TORNADO",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat')),
+                                    TextSpan(
+                                        text:
+                                            "\n\n\nHow to prepare for a Tornado. \n\n",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'Montserrat')),
+                                    WidgetSpan(
+                                      child: Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/images/arrow_icon.png',
+                                            width: 50,
+                                            height: 50,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
+                          ),
                         ),
-                        padding: EdgeInsets.only(
-                          top: 20.0,
-                        ),
-                        height: 180.0,
-                        child: ListTile(
-                          dense: true,
-                          title: Column(children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: "HURRICANE",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat')),
-                                  TextSpan(
-                                      text:
-                                          "\n\n\nHow to prepare for a Hurricane. \n\n",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: 'Montserrat')),
-                                  WidgetSpan(
-                                      child: GestureDetector(
-                                    onTap: _launchURLhr,
-                                    child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
-                                          color: Colors.white,
-                                        )),
-                                  )),
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Container(),
-                      SizedBox(height: 10),
-                      Container(),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xff99B1C9),
-                        ),
-                        padding: EdgeInsets.only(
-                          top: 20.0,
-                        ),
-                        height: 180.0,
-                        child: ListTile(
-                          dense: true,
-                          title: Column(children: <Widget>[
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: "TORNADO",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat')),
-                                  TextSpan(
-                                      text:
-                                          "\n\n\nHow to prepare for a tornado. \n\n",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: 'Montserrat')),
-                                  WidgetSpan(
-                                      child: GestureDetector(
-                                    onTap: _launchURLto,
-                                    child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
-                                          color: Colors.white,
-                                        )),
-                                  )),
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
+                        onTap: _launchURLto,
                       ),
                       SizedBox(height: 10),
                       Container(),
