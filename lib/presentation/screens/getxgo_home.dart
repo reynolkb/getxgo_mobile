@@ -14,6 +14,8 @@ class GetxgoHome extends StatefulWidget {
 }
 
 class _GetxgoHomeState extends State<GetxgoHome> {
+  get child => null;
+
   _launchURLea() async {
     const url = 'https://getxgo.com/pages/how-to-be-prepared-for-earthquake';
     if (await canLaunch(url)) {
@@ -180,7 +182,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                               color: Color(0xff2c5977),
                             )),
                       ),
-                      Text('Welcome to the GetxGo preparedness app.',
+                      Text('\nWelcome to the GetxGo preparedness app.\n',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -191,60 +193,60 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                       ),
                       Column(
                         children: <Widget>[
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color(0xff2c5977),
+                          InkWell(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color(0xff2c5977),
+                              ),
+                              padding: EdgeInsets.only(
+                                top: 20.0,
+                              ),
+                              height: 250.0,
+                              child: ListTile(
+                                dense: true,
+                                title: Column(children: <Widget>[
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                            text: "Readiness Checklist",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'Montserrat')),
+                                        TextSpan(
+                                            text:
+                                                "\n\n\nMake copies of your important documents (personal ID cards, Insurance and medical). \n\n",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontFamily: 'Montserrat')),
+                                        WidgetSpan(
+                                          child: Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: Image.asset(
+                                                'assets/images/arrow_icon.png',
+                                                width: 60,
+                                                height: 60,
+                                                color: Colors.white,
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ]),
+                              ),
                             ),
-                            padding: EdgeInsets.only(
-                              top: 20.0,
-                            ),
-                            height: 200.0,
-                            child: ListTile(
-                              dense: true,
-                              title: Column(children: <Widget>[
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                          text: "Readiness Checklist",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'Montserrat')),
-                                      TextSpan(
-                                          text:
-                                              "\n\n\nMake copies of your important documents (personal ID cards, Insurance and medical). \n\n",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18,
-                                              fontFamily: 'Montserrat')),
-                                      WidgetSpan(
-                                          child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    UserPage()),
-                                          );
-                                        },
-                                        child: Align(
-                                            alignment: Alignment.bottomRight,
-                                            child: Icon(
-                                              Icons.arrow_forward_ios,
-                                              size: 20,
-                                              color: Colors.white,
-                                            )),
-                                      )),
-                                    ],
-                                  ),
-                                )
-                              ]),
-                            ),
-                          ),
-                          // SizedBox(height: 10),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => UserPage()),
+                              );
+                            },
+                          ), // SizedBox(height: 10),
                           // Container(),
                         ],
                       ),
@@ -254,32 +256,34 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
-                            Container(
-                              child: GestureDetector(
-                                onTap: _launchURLfr,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'FIRE',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                            InkWell(
+                              child: Container(
+                                child: GestureDetector(
+                                  onTap: _launchURLfr,
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'FIRE',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xffDF7C39),
+                                ),
+                                width: 200.0,
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xffDF7C39),
-                              ),
-                              width: 200.0,
+                              onTap: _launchURLfr,
                             ),
                             SizedBox(width: 10),
                             Container(),
-                            Container(
-                              child: GestureDetector(
-                                onTap: _launchURLfl,
+                            InkWell(
+                              child: Container(
                                 child: Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -291,18 +295,18 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                                     ),
                                   ),
                                 ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xff345D98),
+                                ),
+                                width: 200.0,
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xff345D98),
-                              ),
-                              width: 200.0,
+                              onTap: _launchURLfl,
                             ),
                             SizedBox(width: 10),
                             Container(),
-                            Container(
-                              child: GestureDetector(
-                                onTap: _launchURLea,
+                            InkWell(
+                              child: Container(
                                 child: Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -314,18 +318,18 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                                     ),
                                   ),
                                 ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xffEED023),
+                                ),
+                                width: 200.0,
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xffEED023),
-                              ),
-                              width: 200.0,
+                              onTap: _launchURLea,
                             ),
                             SizedBox(width: 10),
                             Container(),
-                            Container(
-                              child: GestureDetector(
-                                onTap: _launchURLhr,
+                            InkWell(
+                              child: Container(
                                 child: Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -337,18 +341,18 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                                     ),
                                   ),
                                 ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xff3A7359),
+                                ),
+                                width: 200.0,
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xff3A7359),
-                              ),
-                              width: 200.0,
+                              onTap: _launchURLhr,
                             ),
                             SizedBox(width: 10),
                             Container(),
-                            Container(
-                              child: GestureDetector(
-                                onTap: _launchURLto,
+                            InkWell(
+                              child: Container(
                                 child: Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -360,13 +364,16 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                                     ),
                                   ),
                                 ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xff99B1C9),
+                                ),
+                                width: 200.0,
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xff99B1C9),
-                              ),
-                              width: 200.0,
+                              onTap: _launchURLto,
                             ),
+                            SizedBox(width: 10),
+                            Container(),
                           ],
                         ),
                       ),
