@@ -468,7 +468,7 @@ class _GetxgoHomeState extends State<GetxgoHome> {
                                       children: [
                                         WidgetSpan(
                                           child: GestureDetector(
-                                            onTap: _launchURL1,
+                                            onTap: _launchURL2,
                                             child: Image.asset(
                                               'assets/images/fire_getxgokit.png', // On click should redirect to an URL
 
