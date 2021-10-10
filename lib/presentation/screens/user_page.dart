@@ -1,4 +1,5 @@
 import 'package:bloc_architecture_app/core/constants/constants.dart';
+import 'package:bloc_architecture_app/presentation/screens/widgets/NavBar2.dart';
 import 'package:bloc_architecture_app/presentation/screens/widgets/message.dart';
 
 import 'package:flutter/material.dart';
@@ -217,6 +218,7 @@ class _UserPageState extends State<UserPage> {
           }
         },
       ),
+      bottomNavigationBar: NavBar2(),
     );
   }
 }
