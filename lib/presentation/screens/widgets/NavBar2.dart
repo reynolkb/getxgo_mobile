@@ -12,17 +12,17 @@ class NavBar2 extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // IconButton(
-          //   icon: Icon(
-          //     Icons.home,
-          //     size: 44.0,
-          //     color: Colors.white,
-          //   ),
-          //   onPressed: () {
-          //     // print("Home Pressed");
-          //     Navigator.pushReplacementNamed(context, 'getxgo_home');
-          //   },
-          // ),
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              size: 30.0,
+              color: Color(0xff2C5977),
+            ),
+            onPressed: () {
+              // print("Home Pressed");
+              Navigator.pushReplacementNamed(context, 'getxgo_home');
+            },
+          ),
           IconButton(
             icon: Icon(
               Icons.checklist,
@@ -30,7 +30,7 @@ class NavBar2 extends StatelessWidget {
               color: Color(0xff2C5977),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, 'user_page');
+              Navigator.pushReplacementNamed(context, 'user_page');
             },
           ),
           IconButton(
