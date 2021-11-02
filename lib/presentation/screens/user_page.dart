@@ -7,9 +7,6 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 import 'checklist_page.dart';
 import 'login_page.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-const _url = 'https://flutter.dev';
 
 class UserPage extends StatefulWidget {
   @override
